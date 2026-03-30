@@ -1,4 +1,6 @@
 import "../NavBar/index.scss";
+import dicaprio from "../../assets/dicaprio.jpg";
+import Image from "next/image";
 
 export default function NavBar() {
   return (
@@ -6,8 +8,11 @@ export default function NavBar() {
         <div className="navbar-content">
             <h1 className="navbar-title">IMDB APP</h1>
             <div className="greeting-content">
-                <p className="greeting-text">Welcome Back</p>
-                <p className="greeting-text2">Brito</p>
+                <Image src={dicaprio} alt="Profile Picture" className="profile-pic" />
+                <div className="greeting-text-group">
+                    <p className="greeting-text">Welcome Back</p>
+                    <p className="greeting-text2">DiCaprio</p>
+                </div>
             </div>
         </div>
         <div className="search-bar">

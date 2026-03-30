@@ -20,26 +20,24 @@
     white-space: nowrap; /* prevents title from breaking into multiple lines */
 }
 
-/* Search bar styles (flexible center piece)*/
-.search-bar {
-    /*flex: 1;  takes remaining space in the middle */
-    display: flex;
-    flex: 1 1 auto; /* allows it to grow and shrink */
-    justify-content: center;
-    margin: 0.5rem 0.2rem; /* spacing on left and right */
-    min-width: 0; /* allows input to shrink properly */
-}
-
-.search-bar input {
-    width: 100%;      /* fill available space */
-    /* max-width: 400px; limit max width for better aesthetics */
-    border-radius: 6px;
-    border: 1px solid #ffffff;
-    padding: 0.3rem 0.5rem; /* better spacing inside input */
-    /*box-sizing: border-box; includes padding in width */
-}
-
 .greeting-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto; /* pushes greeting to the right */
+    flex-shrink: 0; /* prevents greeting from shrinking */
+    white-space: nowrap; /* prevents greeting from breaking into multiple lines */
+    gap: 0.5rem; /* spacing between profile picture and greeting text */
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /*margin-bottom: 0.2rem;  spacing between picture and text */
+}
+
+.greeting-text-group {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,3 +65,23 @@
     margin: 0;
     padding: 0;
 }
+
+/* Search bar styles (flexible center piece)*/
+.search-bar {
+    /*flex: 1;  takes remaining space in the middle */
+    display: flex;
+    flex: 1 1 auto; /* allows it to grow and shrink */
+    justify-content: center;
+    margin: 0.5rem 0.2rem; /* spacing on left and right */
+    min-width: 0; /* allows input to shrink properly */
+}
+
+.search-bar input {
+    width: 100%;      /* fill available space */
+    /* max-width: 400px; limit max width for better aesthetics */
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    padding: 0.45rem 0.5rem; /* better spacing inside input */
+    /*box-sizing: border-box; includes padding in width */
+}
+
