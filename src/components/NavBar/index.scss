@@ -26,7 +26,7 @@
     display: flex;
     flex: 1 1 auto; /* allows it to grow and shrink */
     justify-content: center;
-    margin: 0 1rem; /* spacing on left and right */
+    margin: 0.5rem 0.2rem; /* spacing on left and right */
     min-width: 0; /* allows input to shrink properly */
 }
 
@@ -34,7 +34,7 @@
     width: 100%;      /* fill available space */
     /* max-width: 400px; limit max width for better aesthetics */
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     padding: 0.3rem 0.5rem; /* better spacing inside input */
     /*box-sizing: border-box; includes padding in width */
 }
@@ -49,8 +49,8 @@
 }
 
 .greeting-text {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.45rem;
+    font-weight: lighter;
     font-style: normal;
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 253, 253);
@@ -59,8 +59,8 @@
 }
 
 .greeting-text2 {
-    font-size: 1.35rem;
-    font-weight: normal;
+    font-size: 1.4rem;
+    font-weight: bold;
     font-style: italic;
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 253, 253);

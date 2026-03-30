@@ -11,7 +11,7 @@ export default function NavBar() {
             </div>
         </div>
         <div className="search-bar">
-            <input type="text" placeholder="Search movies or TV shows..." />
+            <input type="text" placeholder="Search for movies or TV shows..." />
         </div>
     </nav>
   );
