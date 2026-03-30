@@ -6,7 +6,7 @@ export default function NavBar() {
   return (
     <nav className="navbar-container">
         <div className="navbar-content">
-            <h1 className="navbar-title">IMDB APP</h1>
+            <h1 className="navbar-title">IMDB</h1>
             <div className="greeting-content">
                 <Image src={dicaprio} alt="Profile Picture" className="profile-pic" />
                 <div className="greeting-text-group">
