@@ -14,17 +14,20 @@
     font-weight: bold;
     font-style: normal;
     font-family:'Times New Roman', Times, serif;
-    color: rgba(255, 253, 253, 0.945);
+    color: rgb(255, 253, 253);
     margin: 0;
+    flex-shrink: 0; /* prevents title from shrinking */
+    white-space: nowrap; /* prevents title from breaking into multiple lines */
 }
 
-/* Search bar styles */
+/* Search bar styles (flexible center piece)*/
 .search-bar {
     /*flex: 1;  takes remaining space in the middle */
     display: flex;
     flex: 1 1 auto; /* allows it to grow and shrink */
     justify-content: center;
     margin: 0 1rem; /* spacing on left and right */
+    min-width: 0; /* allows input to shrink properly */
 }
 
 .search-bar input {
@@ -40,6 +43,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: auto; /* pushes greeting to the right */
+    flex-shrink: 0; /* prevents greeting from shrinking */
+    white-space: nowrap; /* prevents greeting from breaking into multiple lines */
 }
 
 .greeting-text {
@@ -47,39 +53,17 @@
     font-weight: bold;
     font-style: normal;
     font-family:'Times New Roman', Times, serif;
-    color: rgba(255, 253, 253, 0.945);
+    color: rgb(255, 253, 253);
     margin: 0;
     padding: 0;
 }
 
 .greeting-text2 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: normal;
     font-style: italic;
     font-family:'Times New Roman', Times, serif;
-    color: rgba(255, 253, 253, 0.945);
+    color: rgb(255, 253, 253);
     margin: 0;
     padding: 0;
-}
-
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .navbar-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .search-bar {
-    margin: 0;                /* remove horizontal margin when stacked */
-  }
-
-  .search-bar input {
-    max-width: 100%;          /* fill width on mobile */
-  }
-
-  .greeting-content {
-    align-items: flex-end;
-    text-align: right;   /* center text when stacked */
-  }
 }
