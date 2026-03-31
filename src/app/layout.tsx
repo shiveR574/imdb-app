@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import "./globals.scss";
 import NavBar from "../components/NavBar";
-import MovieCard from "../components/MovieList";
+import MovieList from "../components/MovieList";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavBar />
-        <MovieCard />
+        <MovieList />
         {children}
       </body>
     </html>
