@@ -1,12 +1,10 @@
-import "../app/page.css";
-import MovieCard from "../components/MovieList";
-import NavBar from "../components/NavBar";
+import './page.scss';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div>
-      {/* <NavBar />
-      <MovieCard /> */}
-    </div>
+  <div className="home-page-title">
+    <p>Welcome to IMDB!</p>
+    <p>To discover the best movies and TV shows, click on the links above.</p>
+  </div>
   );
 }

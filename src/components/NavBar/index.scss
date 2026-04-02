@@ -21,6 +21,33 @@
     white-space: nowrap; /* prevents title from breaking into multiple lines */
 }
 
+.navbar-links {
+    width: 100%;
+    display: flex;
+    gap: 1.2rem; /* spacing between links */
+    display: flex;
+    justify-content: center; /* centers the links in the available space */
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: white;
+        font-family:'Times New Roman', Times, serif;
+        border-radius: 6px;
+        padding: 0.2rem 0.4rem;
+        transition: 0.3s ease;
+    }
+
+    a:hover {
+        background-color: rgb(255, 253, 253);
+        color: rgba(66, 66, 66, 0.882);
+
+    }
+}
+
+
 .greeting-content {
     display: flex;
     flex-direction: row;
