@@ -1,0 +1,74 @@
+.tv-show-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+
+    .tv-show-poster img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    .tv-show-infos {
+        position: absolute;
+        bottom: 0; // para posicionar na parte inferior do card
+        background: linear-gradient(#00000000, #000000 90%);
+        height: 100px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 10px;
+        .tv-show-name {
+            color: #f1f5f9;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .hidden-content{
+            color: white;
+            font-size: 12px;
+            margin-top: 8px;
+            height: 0; //para esconder o conteúdo
+            opacity: 0; //para esconder o conteúdo
+            transition: all .6s;
+
+            .btn-default {
+                background-color: #6046ff;
+                padding: 6px 8px;
+                border-radius: 6px;
+                margin-top: 10px;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .tv-show-poster img {
+            opacity: 0.5;
+        }
+
+        .hidden-content {
+            opacity: 1; // para mostrar o conteúdo
+
+        }
+
+        .tv-show-infos:has(.tv-show-overview) .hidden-content {
+            height: 100px; // para mostrar o conteúdo se tiver overview
+        }
+
+        .tv-show-infos:not(:has(.tv-show-overview)) .hidden-content {
+            height: 50px; // para mostrar o conteúdo se não tiver overview
+        }
+    }
+}
