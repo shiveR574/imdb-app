@@ -42,7 +42,7 @@
 .navbar-links {
     width: 100%;
     display: flex;
-    gap: 1.2rem; /* spacing between links */
+    gap: 0.5rem; /* spacing between links */
     display: flex;
     justify-content: center; /* centers the links in the available space */
     align-items: center;
@@ -73,6 +73,7 @@
     flex-shrink: 0; /* prevents greeting from shrinking */
     white-space: nowrap; /* prevents greeting from breaking into multiple lines */
     gap: 0.5rem; /* spacing between profile picture and greeting text */
+    padding: 5px;
 }
 
 .profile-pic {
