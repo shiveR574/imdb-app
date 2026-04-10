@@ -4,9 +4,32 @@ import "../NavBar/index.scss";
 import dicaprio from "../../assets/dicaprio.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
+import { Movie } from "../../types/movie";
+import MovieCard from "../MovieCard";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<Movie[]>([]);
+
+
+  const getSearch = () => {
+
+
+      axios ({
+          method: "get",
+          url: "https://api.themoviedb.org/3/search/multi",
+          params: {
+                api_key: "9ab0c1b5c24de8fee8cff270d3f18e70",
+                language: "en-US",
+                query: query,
+          },
+      }).then (response => {
+        setResults(response.data.results); //SAVE DATA
+        console.log(response.data.results); //DEBUG MODE
+      }) 
+  }
 
   return (
     <nav className="navbar-container">
@@ -37,8 +60,30 @@ export default function NavBar() {
       </div>
 
       <div className="search-bar">
-        <input type="text" placeholder="Search for movies or TV shows..." />
+        <input type="text"
+         placeholder="Search for movies or TV shows..."
+         value={query}
+         onChange={(e) => setQuery(e.target.value)}
+         onKeyDown={(e) => {
+          if (e.key === "Enter") 
+            getSearch();
+          }}
+         />
+
+         <button className="search-btn" onClick={getSearch}>Search</button>
+
       </div>
+      
+      
+      <div className="results">
+          {results.map((item) => 
+          <MovieCard
+            key = {item.id}
+            movie = {item}
+          />
+          )}
+      </div>
+      
     </nav>
   );
 }

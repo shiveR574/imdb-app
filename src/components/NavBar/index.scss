@@ -131,6 +131,24 @@
     /*box-sizing: border-box; includes padding in width */
 }
 
+.results{
+    padding: 24px 3%;
+    display: grid;
+    gap: 16px;
+    list-style: none;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.search-btn {
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-weight: bold;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
