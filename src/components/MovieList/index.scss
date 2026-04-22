@@ -12,4 +12,33 @@
     list-style: none;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+
+    button {
+        background-color: #f3f3f3;
+        border: none;
+        padding: 8px 16px;
+        margin: 0 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: rgb(80, 80, 80);
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #e0e0e0;
+    }
+
+    span {
+        font-size: 16px;
+        color: #f3f2f2;
+        font-weight: bold;
+        padding: 5px 8px;
+    }
 }
