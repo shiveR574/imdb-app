@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "../NavBar/index.scss";
 import dicaprio from "../../assets/dicaprio.jpg";
+import IMDB from "../../assets/imdb.png";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -34,7 +35,8 @@ export default function NavBar() {
   return (
     <nav className="navbar-container">
       <div className="navbar-content">
-        <h1 className="navbar-title">IMDB</h1>
+        {/* <h1 className="navbar-title">IMDB</h1> */}
+        <Image src={IMDB} alt="IMDB Logo" className="logo-pic" />
 
         <button
           className="hamburger"

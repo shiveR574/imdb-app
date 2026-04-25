@@ -20,7 +20,8 @@ export default function MovieList (){
 
     const getMovies = async (page: number) =>{ 
         setIsLoading(true); //set loading state to true before fetching data
-        await axios({
+        try {
+            const response = await axios({
             method: "get",
             url: "https://api.themoviedb.org/3/discover/movie",
             params: {
@@ -28,13 +29,15 @@ export default function MovieList (){
                 language: "en-US",
                 page, //pass page number as a parameter
             }
-        }).then(response => {            
+        });          
             setMovies(response.data.results);
             setTotalPages(response.data.total_pages);
             console.log(response.data.results);
-        });
-
-        setIsLoading(false);
+        } catch (error) {
+            console.error("Error fetching movies:", error);
+        } finally {
+            setIsLoading(false); //always runs after success or error
+        }
     }
 
     if (isLoading) {
