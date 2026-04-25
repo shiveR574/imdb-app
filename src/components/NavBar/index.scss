@@ -10,15 +10,22 @@
     padding: 0.2rem 0.5rem;
 }
 
-.navbar-title {
-    font-size: 2.55rem;
-    font-weight: bold;
-    font-style: normal;
-    font-family:'Times New Roman', Times, serif;
-    color: rgb(255, 253, 253);
-    margin: 0;
-    flex-shrink: 0; /* prevents title from shrinking */
-    white-space: nowrap; /* prevents title from breaking into multiple lines */
+// .navbar-title {
+//     font-size: 2.55rem;
+//     font-weight: bold;
+//     font-style: normal;
+//     font-family:'Times New Roman', Times, serif;
+//     color: rgb(255, 253, 253);
+//     margin: 0;
+//     flex-shrink: 0; /* prevents from shrinking */
+//     white-space: nowrap; /* prevents from breaking into multiple lines */
+// }
+
+.logo-pic {
+    width: 110px;
+    height: auto;
+    flex-shrink: 0; /* prevents from shrinking */
+    white-space: nowrap; /* prevents from breaking into multiple lines */
 }
 
 .hamburger {
