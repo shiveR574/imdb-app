@@ -89,7 +89,7 @@ export default function HomePage() {
     </div>
 
     <div className="tvshows-container">
-      <p className="trendingtvshows-title">Trending TVShows</p>
+      <p className="trendingtvshows-title">Trending TV Shows</p>
         <ul className="trendingtvshows-list">
           {trendingtvshows.map((tvshow) =>
             <TVShowCard

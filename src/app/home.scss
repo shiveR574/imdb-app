@@ -35,14 +35,16 @@
         font-family: 'Times New Roman', Times, serif;
         font-size: 2.5rem;
         font-weight: bold;
-        color: red;
+        color: rgb(255, 0, 0);
         margin: 0.3rem 0rem; /* spacing between title and subtitle */
         text-align: left;
-        padding: 0rem 3.2rem;
+        padding: 0rem 2.5rem;
+        flex-shrink: 0; /* prevents from shrinking */
+        white-space: nowrap; /* prevents from breaking into multiple lines */
     }
 
     .trendingmovie-list{
-        padding: 24px 3%;
+        padding: 8px 3%;
         display: grid;
         gap: 16px;
         list-style: none;
@@ -61,15 +63,32 @@
         color: red;
         margin: 0.3rem 0rem; /* spacing between title and subtitle */
         text-align: left;
-        padding: 0rem 3.2rem;
+        padding: 0rem 2.5rem;
+        flex-shrink: 0; /* prevents from shrinking */
+        white-space: nowrap; /* prevents from breaking into multiple lines */
     }
 
     .trendingtvshows-list{
-        padding: 24px 3%;
+        padding: 8px 3%;
         display: grid;
         gap: 16px;
         list-style: none;
         width: 100%;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+}
+
+@media (max-width: 768px) {
+    .trendingmovies-title {
+        text-align: center;
+        flex-shrink: 0; /* prevents from shrinking */
+        white-space: nowrap; /* prevents from breaking into multiple lines */
+    }
+
+    .trendingtvshows-title {
+        text-align: center;
+        flex-shrink: 0; /* prevents from shrinking */
+        white-space: nowrap; /* prevents from breaking into multiple lines */
+    }
+
 }
