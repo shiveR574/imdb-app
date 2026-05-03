@@ -34,7 +34,7 @@ export default function MovieList (){
             setTotalPages(response.data.total_pages);
             console.log(response.data.results);
         } catch (error) {
-            console.error("Error fetching movies:", error);
+            console.error("Error fetching movies: ", error);
         } finally {
             setIsLoading(false); //always runs after success or error
         }

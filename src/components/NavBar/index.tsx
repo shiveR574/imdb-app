@@ -36,7 +36,7 @@ export default function NavBar() {
     <nav className="navbar-container">
       <div className="navbar-content">
         {/* <h1 className="navbar-title">IMDB</h1> */}
-        <Image src={IMDB} alt="IMDB Logo" className="logo-pic" />
+        <Image src={IMDB} alt="IMDB Logo" className="logo-pic" priority />
 
         <button
           className="hamburger"
