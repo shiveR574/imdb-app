@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import "../NavBar/index.scss";
 import dicaprio from "../../assets/dicaprio.jpg";
 import IMDB from "../../assets/imdb.png";
@@ -12,25 +13,13 @@ import MovieCard from "../MovieCard";
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Movie[]>([]);
+  const router = useRouter();
 
 
   const getSearch = () => {
-
-
-      axios ({
-          method: "get",
-          url: "https://api.themoviedb.org/3/search/multi",
-          params: {
-                api_key: "9ab0c1b5c24de8fee8cff270d3f18e70",
-                language: "en-US",
-                query: query,
-          },
-      }).then (response => {
-        setResults(response.data.results); //SAVE DATA
-        console.log(response.data.results); //DEBUG MODE
-      }) 
-  }
+    if (query.trim()) return;
+    router.push(`/search?q=${encodeURIComponent(query)}`);
+  };
 
   return (
     <nav className="navbar-container">
@@ -63,7 +52,7 @@ export default function NavBar() {
 
       <div className="search-bar">
         <input type="text"
-         placeholder="Search for movies or TV shows..."
+         placeholder="Search for movies, TV shows or people..."
          value={query}
          onChange={(e) => setQuery(e.target.value)}
          onKeyDown={(e) => {
@@ -74,16 +63,6 @@ export default function NavBar() {
 
          <button className="search-btn" onClick={getSearch}>Search</button>
 
-      </div>
-      
-      
-      <div className="results">
-          {results.map((item) => 
-          <MovieCard
-            key = {item.id}
-            movie = {item}
-          />
-          )}
       </div>
       
     </nav>

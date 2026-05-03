@@ -1,6 +1,6 @@
 .navbar-container {
     width: 100%;
-    padding: 0.5rem 0.5rem; 
+    padding: 0.5rem 0.5rem;
 }
 
 .navbar-content {
@@ -154,6 +154,11 @@
     margin-left: 5px;
     border: none;
     cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: rgba(255, 253, 253, 0.932);
+    color: rgba(66, 66, 66, 0.952);
 }
 
 @media (max-width: 768px) {
