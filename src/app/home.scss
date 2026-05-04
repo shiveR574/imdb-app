@@ -94,12 +94,14 @@
         text-align: center;
         flex-shrink: 0; /* prevents from shrinking */
         white-space: nowrap; /* prevents from breaking into multiple lines */
+        font-size: 2.3rem; /* slightly smaller font size for mobile */
     }
 
     .trendingtvshows-title {
         text-align: center;
         flex-shrink: 0; /* prevents from shrinking */
         white-space: nowrap; /* prevents from breaking into multiple lines */
+        font-size: 2.3rem; /* slightly smaller font size for mobile */
     }
 
 }

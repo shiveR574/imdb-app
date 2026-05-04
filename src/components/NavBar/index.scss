@@ -50,9 +50,9 @@
     width: 100%;
     display: flex;
     gap: 0.5rem; /* spacing between links */
-    display: flex;
     justify-content: center; /* centers the links in the available space */
     align-items: center;
+    position: absolute;
 
     a {
         text-decoration: none;
@@ -167,6 +167,8 @@
         flex-direction: column;
         align-items: center;
         padding: 0.3rem 0;
+        position: static; /* allows it to flow with the document */
+
 
         a {
         text-decoration: none;
