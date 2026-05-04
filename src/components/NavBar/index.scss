@@ -5,7 +5,7 @@
 
 .navbar-content {
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* left, center, right */
+    grid-template-columns: 0.3fr auto 0.3fr; /* left, center, right */
     align-items: center;
     justify-content: space-between;
     padding: 0.2rem 0.5rem;
@@ -56,6 +56,8 @@
     gap: 0.5rem; /* spacing between links */
     justify-content: center; /* centers the links in the available space */
     align-items: center;
+    white-space: nowrap; /* prevents from breaking into multiple lines */
+    flex-shrink: 0;
 
     a {
         text-decoration: none;
