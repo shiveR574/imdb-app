@@ -60,20 +60,34 @@
     // justify-content: center; /* centers the links in the available space */
     // align-items: center;
     white-space: nowrap; /* prevents from breaking into multiple lines */
-    flex-shrink: 0;
+    flex-shrink: 0; /* prevents from shrinking */
 
     a {
         text-decoration: none;
-        font-size: 2.2rem;
+        font-size: 1.9rem;
         font-weight: bold;
         color: white;
         font-family: "Manrope", sans-serif;
         border-radius: 6px;
-        padding: 0.2rem 0.4rem;
+        padding: 0rem 0.4rem;
         transition: 0.3s ease;
     }
 
     a:hover {
+        background-color: rgb(255, 253, 253);
+        color: rgba(27, 20, 51, 0.882);
+    }
+
+    .active {
+        background: linear-gradient(to right, rgb(255, 0, 0), rgba(255, 255, 0, 0.901));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-bottom: 2.5px solid;
+        border-image: linear-gradient(to right, rgb(255, 0, 0), rgba(255, 255, 0, 0.901)) 1;
+    }
+
+    .active:hover {
         background-color: rgb(255, 253, 253);
         color: rgba(27, 20, 51, 0.882);
     }
@@ -92,8 +106,8 @@
 }
 
 .profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     /*margin-bottom: 0.2rem;  spacing between picture and text */
 }
@@ -108,20 +122,20 @@
 }
 
 .greeting-text {
-    font-size: 1.45rem;
+    font-size: 1.25rem;
     font-weight: lighter;
     font-style: normal;
-    font-family:'Times New Roman', Times, serif;
+    font-family: "Manrope", sans-serif;
     color: rgb(255, 253, 253);
     margin: 0;
     padding: 0;
 }
 
 .greeting-text2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     font-style: italic;
-    font-family:'Times New Roman', Times, serif;
+    font-family: "Manrope", sans-serif;
     color: rgb(255, 253, 253);
     margin: 0;
     padding: 0;
@@ -133,30 +147,42 @@
     display: flex;
     flex: 1 1 auto; /* allows it to grow and shrink */
     justify-content: center;
-    margin: 0.5rem 0.2rem; /* spacing on left and right */
+    margin: 0.5rem 0.2rem; 
     min-width: 0; /* allows input to shrink properly */
+    height: 30px; /* sets a fixed height for the search bar */
 }
 
 .search-bar input {
-    width: 35%;
+    width: 28%;
     /* max-width: 400px; limit max width for better aesthetics */
     border-radius: 6px;
     border: 1px solid #ffffff;
     padding: 0.45rem 0.5rem; /* better spacing inside input */
     /*box-sizing: border-box; includes padding in width */
+    font-family: "Manrope", sans-serif;
+    white-space: nowrap; /* prevents input from breaking into multiple lines */
+    text-overflow: ellipsis; /* adds ellipsis when text overflows */
+    overflow: hidden; /* hides overflow text */
+}
+
+.search-bar input::placeholder {
+    white-space: nowrap; /* prevents input from breaking into multiple lines */
+    text-overflow: ellipsis; /* adds ellipsis when text overflows */
+    overflow: hidden; /* hides overflow text */
 }
 
 .search-btn {
     // border-radius: 6px;
     // padding: 0.5rem;
     // font-weight: normal;
-    margin-left: 5px;
+    margin-left: 3px;
     display: flex;
     // border: none;
     cursor: pointer;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     min-width: 0; /* allows input to shrink properly */
+    
 }
 
 // .search-btn:hover {
@@ -183,27 +209,49 @@
         flex-direction: column;
         align-items: center;
         padding: 0.3rem 0;
+        order: 2; /* moves links below greeting and above search bar */
 
 
         a {
         text-decoration: none;
-        font-size: 2.2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         color: white;
-        font-family:'Times New Roman', Times, serif;
+        font-family:'Manrope', sans-serif;
         border-radius: 6px;
-        padding: 0.2rem 0.4rem;
+        padding: 0rem 0.4rem;
         transition: 0.3s ease;
     }
 
         a:hover {
         background-color: rgb(255, 253, 253);
-        color: rgba(66, 66, 66, 0.882);
+        color: rgba(27, 20, 51, 0.882);
     }
         &.open {
             display: flex;
         }
     }
+
+    .search-bar {
+        order: 3;
+    }
+
+    .search-bar input {
+        width: 80%;
+        padding: 0.2rem 0.35rem; /* better spacing inside input */
+        flex-shrink: 0; /* prevents input from shrinking too much */
+        flex-wrap: nowrap; /* prevents input from breaking into multiple lines */
+        white-space: nowrap; /* prevents input from breaking into multiple lines */
+        text-overflow: ellipsis; /* adds ellipsis when text overflows */
+        overflow: hidden; /* hides overflow text */
+    }
+
+    .search-bar input::placeholder {
+        white-space: nowrap; /* prevents input from breaking into multiple lines */
+        text-overflow: ellipsis; /* adds ellipsis when text overflows */
+        overflow: hidden; /* hides overflow text */
+    }
+
 
     .navbar-content {
         display: flex;
@@ -218,6 +266,7 @@
         justify-content: center;
         margin-right: 0; /* reset margin for mobile */
         width: 100%; /* full width for mobile */
+        order: 1; /* move greeting to the top */
     }
 
     .greeting-text-group {

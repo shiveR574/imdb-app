@@ -10,12 +10,13 @@ import Search from "../../assets/search.png";
 // import MovieCard from "../MovieCard";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const router = useRouter();
-
+  const pathname = usePathname();
 
   const getSearch = () => {
     if (!query.trim()) return;
@@ -38,10 +39,11 @@ export default function NavBar() {
 
         <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
 
-          <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/movies" onClick={() => setMenuOpen(false)}>Movies</Link>
-          <Link href="/tv-shows" onClick={() => setMenuOpen(false)}>TV Shows</Link>
+          <Link href="/"  className={pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link  href="/movies" className={pathname === "/movies" ? "active" : ""} onClick={() => setMenuOpen(false)}>Movies</Link>
+          <Link  href="/tv-shows" className={pathname === "/tv-shows" ? "active" : ""} onClick={() => setMenuOpen(false)}>TV Shows</Link>
         </div>
+      
 
         <div className="greeting-content">
           <Image src={dicaprio} alt="Profile Picture" className="profile-pic" />
