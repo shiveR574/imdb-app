@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "../NavBar/index.scss";
 import dicaprio from "../../assets/dicaprio.jpg";
+import Search from "../../assets/search.png";
 // import IMDB from "../../assets/imdb.png";
 // import axios from "axios";
 // import { Movie } from "../../types/movie";
@@ -36,6 +37,7 @@ export default function NavBar() {
         </button>
 
         <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
+
           <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link href="/movies" onClick={() => setMenuOpen(false)}>Movies</Link>
           <Link href="/tv-shows" onClick={() => setMenuOpen(false)}>TV Shows</Link>
@@ -61,7 +63,7 @@ export default function NavBar() {
           }}
          />
 
-         <button className="search-btn" onClick={getSearch}>Search</button>
+         <Image src={Search} alt="Search" className="search-btn" onClick={getSearch} />
 
       </div>
       

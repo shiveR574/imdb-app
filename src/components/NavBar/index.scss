@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 .navbar-container {
     width: 100%;
     padding: 0.5rem 0.5rem;
@@ -65,7 +67,7 @@
         font-size: 2.2rem;
         font-weight: bold;
         color: white;
-        font-family:'Times New Roman', Times, serif;
+        font-family: "Manrope", sans-serif;
         border-radius: 6px;
         padding: 0.2rem 0.4rem;
         transition: 0.3s ease;
@@ -149,14 +151,18 @@
     // padding: 0.5rem;
     // font-weight: normal;
     margin-left: 5px;
+    display: flex;
     // border: none;
     cursor: pointer;
+    height: 25px;
+    width: 25px;
+    min-width: 0; /* allows input to shrink properly */
 }
 
-.search-btn:hover {
-    background-color: rgba(255, 253, 253, 0.932);
-    color: rgba(66, 66, 66, 0.952);
-}
+// .search-btn:hover {
+//     background-color: rgba(255, 253, 253, 0.932);
+//     color: rgba(66, 66, 66, 0.952);
+// }
 
 @media (max-width: 768px) {
     .hamburger {
