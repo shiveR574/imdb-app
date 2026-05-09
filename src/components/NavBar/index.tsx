@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "../NavBar/index.scss";
 import dicaprio from "../../assets/dicaprio.jpg";
-import IMDB from "../../assets/imdb.png";
+// import IMDB from "../../assets/imdb.png";
+// import axios from "axios";
+// import { Movie } from "../../types/movie";
+// import MovieCard from "../MovieCard";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
-import { Movie } from "../../types/movie";
-import MovieCard from "../MovieCard";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function NavBar() {
     <nav className="navbar-container">
       <div className="navbar-content">
         {/* <h1 className="navbar-title">IMDB</h1> */}
-        <Image src={IMDB} alt="IMDB Logo" className="logo-pic" priority />
+        {/*<Image src={IMDB} alt="IMDB Logo" className="logo-pic" priority />*/}
 
         <button
           className="hamburger"

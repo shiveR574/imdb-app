@@ -4,8 +4,10 @@
 }
 
 .navbar-content {
-    display: grid;
-    grid-template-columns: 0.3fr auto 0.3fr; /* left, center, right */
+    // display: grid;
+    // grid-template-columns: 0.3fr auto 0.3fr; /* left, center, right */
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0.2rem 0.5rem;
@@ -22,15 +24,15 @@
 //     white-space: nowrap; /* prevents from breaking into multiple lines */
 // }
 
-.logo-pic {
-    width: 110px;
-    height: auto;
-    display: flex;
-    justify-self:center; /* centers the logo in its grid cell */
-    flex-shrink: 0; /* prevents from shrinking */
-    white-space: nowrap; /* prevents from breaking into multiple lines */
-    object-fit: contain; /* ensures the image fits within the container without distortion */
-}
+// .logo-pic {
+//     width: 110px;
+//     height: auto;
+//     display: flex;
+//     justify-self:center; /* centers the logo in its grid cell */
+//     flex-shrink: 0; /* prevents from shrinking */
+//     white-space: nowrap; /* prevents from breaking into multiple lines */
+//     object-fit: contain; /* ensures the image fits within the container without distortion */
+// }
 
 .hamburger {
     display: none;
@@ -51,11 +53,10 @@
 }
 
 .navbar-links {
-    width: 100%;
     display: flex;
     gap: 0.5rem; /* spacing between links */
-    justify-content: center; /* centers the links in the available space */
-    align-items: center;
+    // justify-content: center; /* centers the links in the available space */
+    // align-items: center;
     white-space: nowrap; /* prevents from breaking into multiple lines */
     flex-shrink: 0;
 
@@ -72,7 +73,7 @@
 
     a:hover {
         background-color: rgb(255, 253, 253);
-        color: rgba(66, 66, 66, 0.882);
+        color: rgba(27, 20, 51, 0.882);
     }
 }
 
@@ -135,7 +136,7 @@
 }
 
 .search-bar input {
-    width: 100%;      /* fill available space */
+    width: 35%;
     /* max-width: 400px; limit max width for better aesthetics */
     border-radius: 6px;
     border: 1px solid #ffffff;
@@ -144,11 +145,11 @@
 }
 
 .search-btn {
-    border-radius: 6px;
-    padding: 0.5rem;
-    font-weight: normal;
+    // border-radius: 6px;
+    // padding: 0.5rem;
+    // font-weight: normal;
     margin-left: 5px;
-    border: none;
+    // border: none;
     cursor: pointer;
 }
 
@@ -166,9 +167,9 @@
     //     display: none;
     // }
 
-    .logo-pic {
-        justify-self: unset;
-    }
+    // .logo-pic {
+    //     justify-self: unset;
+    // }
 
     .navbar-links {
         display: none;
