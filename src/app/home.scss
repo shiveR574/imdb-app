@@ -43,7 +43,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        padding: 0 2.6%; 
+        padding: 0 5%; 
     }
 
     .scroll-button {
@@ -74,7 +74,7 @@
         overflow-x: auto;
         scroll-behavior: smooth;
         gap: 16px;
-        margin-left: 5px; /* removes default margin */
+        margin-left: 5px;
         list-style: none;
         width: 100%;
         scroll-snap-type: x mandatory; // snaps scroll to each card
@@ -107,7 +107,7 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
         margin: 0.8rem 0rem; /*spacing between bottom/top and left/right */
-        text-decoration: center;
+        text-align: center;
         flex-shrink: 0; /*prevents from shrinking */
         white-space: nowrap; /*prevents from breaking into multiple lines */
         border-bottom: 1px solid rgba(255, 255, 255, 0.088); /*adds a line below the title */
