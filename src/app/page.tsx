@@ -1,7 +1,7 @@
 "use client";
 import "../app/home.scss";
 import {Movie} from "../types/movie";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import MovieCard from '../components/MovieCard';
@@ -93,6 +93,16 @@ export default function HomePage() {
         }
       }
 
+      const movieListRef = useRef<HTMLUListElement>(null);
+
+      const scrollMovieList = (ref: React.RefObject<HTMLUListElement | null>, direction: "left" | "right") => {
+        if (ref.current) {
+          ref.current.scrollBy({
+            left: direction === "left" ? -300 : 300,
+            behavior: "smooth",
+          });
+        }
+      }
 
   if (isLoading) {
       return (
@@ -104,19 +114,20 @@ export default function HomePage() {
 
   return (
   <div className="home-page-title">
-    {/* <p className="paragraph1">Welcome to IMDB!</p> */}
-    {/* <p>To discover the best movies and TV shows, click on the links above or just search on the search bar</p> */}
-    
     <div className="movies-container">
       <p className="trendingmovies-title">Trending Movies</p>
-        <ul className="trendingmovie-list">
-          {trendingmovies.map((movie) =>
-            <MovieCard
-              key = {movie.id}
-              movie = {movie}
-            />
-          )}
-        </ul>
+      <div className="scroll-wrapper">
+        <button className="scroll-button left" onClick={() => scrollMovieList(movieListRef, "left")}>‹</button>
+          <ul className="trendingmovie-list" ref={movieListRef}>
+            {trendingmovies.map((movie) =>
+              <MovieCard
+                key = {movie.id}
+                movie = {movie}
+              />
+            )}
+          </ul>
+        <button className="scroll-button right" onClick={() => scrollMovieList(movieListRef, "right")}>›</button>
+      </div>
     </div>
 
     <div className="tvshows-container">
