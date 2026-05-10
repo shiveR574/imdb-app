@@ -42,6 +42,7 @@ export default function NavBar() {
           <Link href="/"  className={pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>Home</Link>
           <Link  href="/movies" className={pathname === "/movies" ? "active" : ""} onClick={() => setMenuOpen(false)}>Movies</Link>
           <Link  href="/tv-shows" className={pathname === "/tv-shows" ? "active" : ""} onClick={() => setMenuOpen(false)}>TV Shows</Link>
+          <Link  href="/people" className={pathname === "/people" ? "active" : ""} onClick={() => setMenuOpen(false)}>People</Link>
         </div>
       
 

@@ -1,5 +1,3 @@
-
-
 *{
     box-sizing: border-box;
     padding: 0;
@@ -51,7 +49,7 @@
     }
 
     .trendingmovie-list{
-        padding: 8px 3%;
+        padding: 24px 3%;
         display: grid;
         gap: 16px;
         list-style: none;
@@ -82,7 +80,7 @@
     }
 
     .trendingtvshows-list{
-        padding: 8px 3%;
+        padding: 24px 3%;
         display: grid;
         gap: 16px;
         list-style: none;
@@ -99,6 +97,11 @@
         font-size: 2.3rem; /* slightly smaller font size for mobile */
     }
 
+    .trendingmovie-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }     
+
+
     .trendingtvshows-title {
         text-align: center;
         flex-shrink: 0; /* prevents from shrinking */
@@ -106,4 +109,8 @@
         font-size: 2.3rem; /* slightly smaller font size for mobile */
     }
 
+    .trendingtvshows-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }   
+    
 }

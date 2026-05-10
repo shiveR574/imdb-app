@@ -6,3 +6,13 @@
     list-style: none;
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .tv-show-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .pagination button {
+        margin-bottom: 10px;
+    }
+}
