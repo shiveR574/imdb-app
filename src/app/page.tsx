@@ -7,11 +7,14 @@ import { ClipLoader } from "react-spinners";
 import MovieCard from '../components/MovieCard';
 import { TVShow } from "@/src/types/tvshow";
 import TVShowCard from '../components/TVShowCard';
+import { People } from "../types/people";
+import PeopleDetails from "@/src/components/PeopleDetails";
 
 export default function HomePage() {
 
   const [trendingmovies, setTrendingMovies] = useState<Movie[]>([]);
   const [trendingtvshows, setTrendingTvShows] = useState<TVShow[]>([]);
+  const [trendingpeople, setTrendingPeople] = useState<People[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   
 
@@ -21,6 +24,10 @@ export default function HomePage() {
 
   useEffect(()=> {
     getTrendingTvShows();
+  }, []);
+
+  useEffect(() => {
+    getTrendingPeople();
   }, []);
 
   const getTrendingMovies = async () => {
@@ -63,6 +70,30 @@ export default function HomePage() {
     }
   }
 
+  const getTrendingPeople = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios ({
+        method: "get",
+        url: "https://api.themoviedb.org/3/trending/person/week",
+        headers: {
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
+          accept: "application/json", 
+        },
+        params: {
+          language: "en-US",
+        }
+      });
+          setTrendingPeople(response.data.results);
+          console.log(response.data.results);
+        } catch (error) {
+          console.error("Error fetching trending people: ", error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+
+
   if (isLoading) {
       return (
           <div className="loading-container">
@@ -95,6 +126,18 @@ export default function HomePage() {
             <TVShowCard
               key = {tvshow.id}
               tvshow = {tvshow}
+            />
+          )}
+        </ul>
+    </div>
+
+    <div className="people-container">
+      <p className="trendingpeople-title">Trending People</p>
+        <ul className="trendingpeople-list">
+          {trendingpeople.map((people) =>
+            <PeopleDetails
+              key = {people.id}
+              people = {people}
             />
           )}
         </ul>
