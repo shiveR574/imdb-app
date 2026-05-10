@@ -90,27 +90,36 @@
 }
 
 @media (max-width: 768px) {
-    .trendingmovies-title {
-        text-align: center;
-        flex-shrink: 0; /* prevents from shrinking */
-        white-space: nowrap; /* prevents from breaking into multiple lines */
-        font-size: 2.3rem; /* slightly smaller font size for mobile */
+
+    .movies-container {
+    
+        .trendingmovies-title {
+            text-align: center;
+            flex-shrink: 0; /* prevents from shrinking */
+            white-space: nowrap; /* prevents from breaking into multiple lines */
+            font-size: 2.3rem; /* slightly smaller font size for mobile */
+        }
+
+        .trendingmovie-list {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }    
+
+}
+
+
+    .tvshows-container { 
+        
+        .trendingtvshows-title {
+            text-align: center;
+            flex-shrink: 0; /* prevents from shrinking */
+            white-space: nowrap; /* prevents from breaking into multiple lines */
+            font-size: 2.3rem; /* slightly smaller font size for mobile */
     }
 
-    .trendingmovie-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }     
+        .trendingtvshows-list {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }   
 
-
-    .trendingtvshows-title {
-        text-align: center;
-        flex-shrink: 0; /* prevents from shrinking */
-        white-space: nowrap; /* prevents from breaking into multiple lines */
-        font-size: 2.3rem; /* slightly smaller font size for mobile */
-    }
-
-    .trendingtvshows-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }   
+}
     
 }
