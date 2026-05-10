@@ -160,6 +160,7 @@
     padding: 0.45rem 0.5rem; /* better spacing inside input */
     /*box-sizing: border-box; includes padding in width */
     font-family: "Manrope", sans-serif;
+    font-weight: bold;
     white-space: nowrap; /* prevents input from breaking into multiple lines */
     text-overflow: ellipsis; /* adds ellipsis when text overflows */
     overflow: hidden; /* hides overflow text */

@@ -22,7 +22,7 @@ export default function PeopleList() {
         try {
             const response = await axios ({
                 method: "get",
-                url: "https://api.themoviedb.org/3/trending/person/day?language=en-US'",
+                url: "https://api.themoviedb.org/3/person/popular",
                 params: {
                     api_key: "9ab0c1b5c24de8fee8cff270d3f18e70",
                     language: "en-US",

@@ -1,3 +1,10 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 72px);
+}
+
 .tv-show-list {
     padding: 24px 3%;
     display: grid;
@@ -5,6 +12,37 @@
     gap: 16px;
     list-style: none;
     width: 100%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 7px;
+
+    button {
+        background-color: #f3f3f3;
+        border: none;
+        padding: 8px 16px;
+        margin: 0 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: rgb(80, 80, 80);
+        font-weight: bold;
+        font-family: 'Manrope', sans-serif;
+    }
+
+    button:hover {
+        background-color: #e0e0e0;
+    }
+
+    span {
+        font-size: 16px;
+        color: #f3f2f2;
+        font-weight: bold;
+        padding: 5px 8px;
+        font-family: 'Manrope', sans-serif;
+    }
 }
 
 @media (max-width: 768px) {
