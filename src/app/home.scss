@@ -23,19 +23,19 @@
 
     .trendingmovies-title {
         font-family: "Space Grotesk", sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.1rem;
         font-weight: bold;
-        background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 0.901));
+        background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 1));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin: 0.8rem 0rem; /* spacing between title and subtitle */
-        text-align: center;
+        margin: 0.3rem 2rem; /* spacing between title and subtitle */
+        text-align: left;
         flex-shrink: 0; /* prevents from shrinking */
         white-space: nowrap; /* prevents from breaking into multiple lines */
         border-bottom: 1px solid rgba(255, 255, 255, 0.088); /* adds a line below the title */
-        padding-bottom: 8px;
-        box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); /* adds a subtle shadow for depth */
+        padding-bottom: 3px;
+        /*box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); adds a subtle shadow for depth */
     }
 
     //wraps the list + the two arrow buttons
@@ -100,29 +100,76 @@
 
     .trendingtvshows-title {
         font-family: "Space Grotesk", sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.1rem;
         font-weight: bold;
-        background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 0.901));
+        background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 1));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin: 0.8rem 0rem; /*spacing between bottom/top and left/right */
-        text-align: center;
+        margin: 0.3rem 2rem; /*spacing between bottom/top and left/right */
+        text-align: left;
         flex-shrink: 0; /*prevents from shrinking */
         white-space: nowrap; /*prevents from breaking into multiple lines */
         border-bottom: 1px solid rgba(255, 255, 255, 0.088); /*adds a line below the title */
-        padding-bottom: 8px;
-        box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); /*adds a subtle shadow for depth */
+        padding-bottom: 3px;
+        /*box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); adds a subtle shadow for depth */
 
+
+    }
+
+    //wraps the list + the two arrow buttons
+    .scroll-wrapper { 
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0 5%; 
+    }
+
+    .scroll-button {
+        flex-shrink: 0; /* prevents from shrinking */
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: rgba(0,0,0,0.85);
+        }
     }
 
     .trendingtvshows-list{
         padding: 24px 3%;
-        display: grid;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-behavior: smooth;
         gap: 16px;
+        margin-left: 5px;
+        /*display: grid;*/
         list-style: none;
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        scroll-snap-type: x mandatory; // snaps scroll to each card
+        scrollbar-width: none;
+        /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        li {
+            flex-shrink: 0; /* prevents from shrinking */
+            width: 200px; /* fixed width for each item */
+            cursor: pointer;
+            scroll-snap-align: start; /* ensures each card snaps to the start of the container */
+        }
     }
 }
 
@@ -131,29 +178,76 @@
 
     .trendingpeople-title {
         font-family: "Space Grotesk", sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.1rem;
         font-weight: bold;
-        background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 0.901));
+        background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 1));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin: 0.8rem 0rem; /* spacing between bottom/top and left/right */
-        text-align: center;
+        margin: 0.3rem 2rem; /* spacing between bottom/top and left/right */
+        text-align: left;
         flex-shrink: 0; /* prevents from shrinking */
         white-space: nowrap; /* prevents from breaking into multiple lines */
         border-bottom: 1px solid rgba(255, 255, 255, 0.088); /* adds a line below the title */
-        padding-bottom: 8px;
-        box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); /* adds a subtle shadow for depth */
+        padding-bottom: 3px;
+        /*box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); adds a subtle shadow for depth */
 
+    }
+
+    //wraps the list + the two arrow buttons
+    .scroll-wrapper { 
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0 5%; 
+    }
+
+    .scroll-button {
+        flex-shrink: 0; /* prevents from shrinking */
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: rgba(0,0,0,0.85);
+        }
     }
 
     .trendingpeople-list{
         padding: 24px 3%;
-        display: grid;
+        /*display: grid;*/
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        margin-left: 5px;
         gap: 16px;
         list-style: none;
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        scroll-snap-type: x mandatory; // snaps scroll to each card
+        scrollbar-width: none;
+        /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        li {
+            flex-shrink: 0; /* prevents from shrinking */
+            width: 200px; /* fixed width for each item */
+            height: 320px; /* fixed height for each item */
+            cursor: pointer;
+            scroll-snap-align: start; /* ensures each card snaps to the start of the container */
+        }
     }
 }
 
@@ -162,10 +256,11 @@
     .movies-container {
     
         .trendingmovies-title {
-            text-align: center;
+            text-align: left;
             flex-shrink: 0; /* prevents from shrinking */
             white-space: nowrap; /* prevents from breaking into multiple lines */
             font-size: 2.3rem; /* slightly smaller font size for mobile */
+            margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
         }
 
         /*.trendingmovie-list {
@@ -190,36 +285,72 @@
         }
   
 
-}
+    }
 
 
     .tvshows-container { 
         
         .trendingtvshows-title {
-            text-align: center;
+            text-align: left;
             flex-shrink: 0; /*prevents from shrinking */
             white-space: nowrap; /* prevents from breaking into multiple lines*/
             font-size: 2.3rem; /*slightly smaller font size for mobile*/
+            margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
     }
 
-        .trendingtvshows-list {
+        /*.trendingtvshows-list {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }*/
+
+        .trendingtvshows-list {
+            gap: 12px;
+            margin-left: 7.5px;
+            
+
+            li {
+            width: 142px; /* fixed width for each item */
         }
-}  
+        }
+
+        .scroll-button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+        }
+    }
+
+
+  
         
     .people-container { 
         
         .trendingpeople-title {
-            text-align: center;
+            text-align: left;
             flex-shrink: 0; /* prevents from shrinking */
             white-space: nowrap; /* prevents from breaking into multiple lines */
             font-size: 2.3rem; /* slightly smaller font size for mobile */
-    }
+            margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
+        }
 
-        .trendingpeople-list {
+        /*.trendingpeople-list {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        }    
+        }*/
+        
+        .trendingpeople-list {
+            gap: 12px;
+            margin-left: 2.5px;
 
-}
+            li {
+                width: 142px; /* fixed width for each item */
+                height: 240px; /* fixed height for each item */
+            }
+        }
+
+        .scroll-button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+        }
+    }
     
 }

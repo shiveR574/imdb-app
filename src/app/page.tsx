@@ -70,12 +70,14 @@ export default function HomePage() {
     }
   }
 
+
+  // another url to try out --> "https://api.themoviedb.org/3/trending/person/week"
   const getTrendingPeople = async () => {
     setIsLoading(true);
     try {
       const response = await axios ({
         method: "get",
-        url: "https://api.themoviedb.org/3/trending/person/week",
+        url: "https://api.themoviedb.org/3/person/popular",
         headers: {
           Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
           accept: "application/json", 
@@ -104,6 +106,28 @@ export default function HomePage() {
         }
       }
 
+      const tvShowListRef = useRef<HTMLUListElement>(null);
+
+      const scrollTvShowList = (ref: React.RefObject<HTMLUListElement | null>, direction: "left" | "right") => {
+        if (ref.current) {
+          ref.current.scrollBy({
+            left: direction === "left" ? -300 : 300,
+            behavior: "smooth",
+          });
+        }
+      }
+
+            const peopleListRef = useRef<HTMLUListElement>(null);
+
+      const scrollPeopleList = (ref: React.RefObject<HTMLUListElement | null>, direction: "left" | "right") => {
+        if (ref.current) {
+          ref.current.scrollBy({
+            left: direction === "left" ? -300 : 300,
+            behavior: "smooth",
+          });
+        }
+      }
+
   if (isLoading) {
       return (
           <div className="loading-container">
@@ -116,7 +140,7 @@ export default function HomePage() {
   <div className="home-page-title">
     <div className="movies-container">
       <p className="trendingmovies-title">Trending Movies</p>
-      <div className="scroll-wrapper">
+      <div className="scroll-wrapper">  
         <button className="scroll-button left" onClick={() => scrollMovieList(movieListRef, "left")}>‹</button>
           <ul className="trendingmovie-list" ref={movieListRef}>
             {trendingmovies.map((movie) =>
@@ -132,7 +156,9 @@ export default function HomePage() {
 
     <div className="tvshows-container">
       <p className="trendingtvshows-title">Trending TV Shows</p>
-        <ul className="trendingtvshows-list">
+      <div className="scroll-wrapper">  
+        <button className="scroll-button left" onClick={() => scrollTvShowList(tvShowListRef, "left")}>‹</button>
+        <ul className="trendingtvshows-list" ref={tvShowListRef}>
           {trendingtvshows.map((tvshow) =>
             <TVShowCard
               key = {tvshow.id}
@@ -140,11 +166,15 @@ export default function HomePage() {
             />
           )}
         </ul>
+      <button className="scroll-button right" onClick={() => scrollTvShowList(tvShowListRef, "right")}>›</button>
+      </div>
     </div>
 
     <div className="people-container">
       <p className="trendingpeople-title">Trending People</p>
-        <ul className="trendingpeople-list">
+      <div className="scroll-wrapper">
+        <button className="scroll-button left" onClick={() => scrollPeopleList(peopleListRef, "left")}>‹</button>
+        <ul className="trendingpeople-list" ref={peopleListRef}>
           {trendingpeople.map((people) =>
             <PeopleDetails
               key = {people.id}
@@ -152,6 +182,8 @@ export default function HomePage() {
             />
           )}
         </ul>
+        <button className="scroll-button right" onClick={() => scrollPeopleList(peopleListRef, "right")}>›</button>
+      </div>
     </div>
 
   </div>
