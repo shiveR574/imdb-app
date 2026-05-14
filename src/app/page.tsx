@@ -35,9 +35,12 @@ export default function HomePage() {
     try {
       const response = await axios ({
         method: "get",
-        url: "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+        url: "https://api.themoviedb.org/3/trending/movie/day",
+        headers: {
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
+          accept: "application/json", 
+        },
         params: {
-          api_key: "9ab0c1b5c24de8fee8cff270d3f18e70",
           language: "en-US",
         }
       });
@@ -55,9 +58,12 @@ export default function HomePage() {
     try {
       const response = await axios ({
         method: "get",
-        url: "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
+        url: "https://api.themoviedb.org/3/trending/tv/day",
+        headers: {
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
+          accept: "application/json", 
+        },
         params: {
-          api_key: "9ab0c1b5c24de8fee8cff270d3f18e70",
           language: "en-US",
         }
       });
