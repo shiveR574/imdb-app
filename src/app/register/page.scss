@@ -62,4 +62,32 @@
             background-color: rgb(79, 79, 239);
         }
     }
+
+    .line {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: gray;
+        font-family: 'Manrope', sans-serif;
+        font-size: 15px;
+        padding-top: 10px;
+        font-weight: bold;
+    }
+
+    .link-login {
+        color: rgb(34, 34, 197);
+        text-decoration: none;
+        align-items: center;
+        font-family: 'Manrope', sans-serif;
+        font-size: 15px;
+        cursor: pointer;
+        padding-top: 5px;
+    
+
+        &:hover {
+            text-underline-position: under;
+            text-decoration: underline;
+            color: rgb(79, 79, 239);
+        }
+}
 }

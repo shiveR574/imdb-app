@@ -1,4 +1,6 @@
 import "../register/page.scss";
+import Link from "next/link";
+
 
 export default function Register () {
     return (
@@ -18,6 +20,10 @@ export default function Register () {
                     />
                     <button type="submit" className="btn">Submit</button>
                 </form>
+                <div className="line">- OR -</div>
+                <Link href="/login" className="link-login">
+                    Login with an existing account
+                </Link>
             </div>
         </div>
     )
