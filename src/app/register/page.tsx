@@ -1,10 +1,15 @@
 import "../register/page.scss";
 import Link from "next/link";
+import Image from "next/image";
+import preview from "@/src/assets/preview.png";
 
 
 export default function Register () {
     return (
         <div className="register-container">
+            <div className="img-container">
+                <Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>
+            </div>
             <div className="form-container">
                 <h1 className="form-title">Register</h1>
                 <form>
