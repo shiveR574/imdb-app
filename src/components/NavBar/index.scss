@@ -2,7 +2,7 @@
 
 .navbar-container {
     width: 100%;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 6rem;
 }
 
 .navbar-content {
@@ -242,6 +242,11 @@
     // .logo-pic {
     //     justify-self: unset;
     // }
+
+    .navbar-container {
+    width: 100%;
+    padding: 0.5rem 2rem;
+}
 
     .navbar-links {
         display: none;
