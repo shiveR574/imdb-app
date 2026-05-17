@@ -99,7 +99,7 @@
 
         a{
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.9rem;
             font-weight: bold;
             color: white;
             font-family: "Manrope", sans-serif;
@@ -313,6 +313,13 @@
     .greeting-text-group {
         margin-left: 0; /* reset margin for mobile */
         align-items: center; /* center text under profile picture */
+    }
+
+    .registration-links {
+        
+        a {
+            font-size: 1.3rem;
+        }
     }
 }
 
