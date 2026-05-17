@@ -183,8 +183,10 @@
 }
 
     @media (max-width: 768px) {
+        .page-wrapper {
         .register-container {
             width: 90%;
+            margin-top: 20px;
         .form-container {
             width:100%;
 
@@ -194,4 +196,5 @@
             }
         }
     }
+}
 }
