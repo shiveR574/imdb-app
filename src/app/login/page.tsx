@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function Login () {
     return (
+        <div className="page-wrapper">
         <div className="login-container">
             <div className="form-container">
                 <h1 className="form-title">Login</h1>
@@ -38,5 +39,6 @@ export default function Login () {
                 <Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>
             </div>*/}
         </div>
+    </div>
     )
 }

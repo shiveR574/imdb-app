@@ -1,14 +1,22 @@
+.page-wrapper {
+    min-height: 100vh;
+    background-image: url("/gradient.png");
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    filter: hue-rotate(180deg);
+
 .login-container {
     display: flex;
     align-items: center;
-    justify-self: center;
-    width: 65%;
+    width: 25%;
     height: 650px;
-    margin-top: 20px;
+    margin-top: 90px;
     border-radius: 10px;
-    background-image: url("/gradient.png");
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(26, 26, 26, 0.91);
+    // background-image: url("/gradient.png");
+    // background-size: cover;
+    // background-position: center;
 
     // .img-container {
     //     background-image: url("/gradient.png");
@@ -33,8 +41,6 @@
     //     filter: blur(0.8px);
     //     border-radius: 6px;
     // } 
-}
-
 
     .form-container {
         display: flex;
@@ -44,7 +50,7 @@
         padding: 0rem 0.8rem;
         padding-bottom: 27px;
         border-radius: 8px;
-        width: 33%;
+        width: 100%;
         height: 100%;
 
 
@@ -169,7 +175,9 @@
             .btn-register:hover {
                 background-color: rgba(61, 61, 61, 0.908);
             }
+        }
     }
+}
 
     @media (max-width: 768px) {
         .login-container {
