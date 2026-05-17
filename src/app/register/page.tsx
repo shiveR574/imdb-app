@@ -4,6 +4,7 @@ import Image from "next/image";
 import preview from "@/src/assets/preview.png";
 
 
+
 export default function Register () {
     return (
         <div className="register-container">
@@ -25,13 +26,20 @@ export default function Register () {
                     />
                     <button type="submit" className="btn">Submit</button>
                 </form>
-                <div className="line">- OR -</div>
-                <Link href="/login" className="link-login">
-                    Login with an existing account
+                <div className="line-container">
+                    <div className="line-left"></div>
+                        <span>OR</span>
+                    <div className="line-right"></div>
+                </div>
+                <div className="link-login">
+                    Already have an account?
+                <Link href="/login">
+                    <button className="btn-login">Login</button>
                 </Link>
+                </div>
             </div>
             <div className="img-container">
-            <Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>
+            {/*<Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>*/}
             </div>
         </div>
     )
