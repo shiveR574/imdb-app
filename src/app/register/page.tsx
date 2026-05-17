@@ -8,9 +8,6 @@ import preview from "@/src/assets/preview.png";
 export default function Register () {
     return (
         <div className="register-container">
-            {/* <div className="img-container">
-                <Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>
-            </div> */}
             <div className="form-container">
                 <h1 className="form-title">Register</h1>
                 <form>
@@ -38,9 +35,9 @@ export default function Register () {
                 </Link>
                 </div>
             </div>
-            <div className="img-container">
-            {/*<Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>*/}
-            </div>
+            {/*<div className="img-container">
+            <Image src={preview} alt="preview" className="preview-pic" placeholder="blur"/>
+            </div>*/}
         </div>
     )
 }
