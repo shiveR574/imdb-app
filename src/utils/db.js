@@ -4,14 +4,11 @@ const connect = async () => {
     if (mongoose.connections[0].readyState) return;
 
     try {
-        await mongoose.connect(process.env.MONGO_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to Mongoose");
     } catch (error) {
-        throw new Error("Error connecting to Mongoose");
         console.log(error);
+        throw new Error("Error connecting to Mongoose");
     }
 };
 

@@ -115,6 +115,18 @@
         .btn:hover {
             background-color: rgba(61, 61, 61, 0.908);
         }
+
+        .error {
+            color: red;
+            font-family: 'Manrope', sans-serif;
+            font-size: 23px;
+            font-weight: bold;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: hue-rotate(-180deg);
+        }
     }
 
      .line-container {
