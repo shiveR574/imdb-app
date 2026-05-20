@@ -11,12 +11,15 @@ import Search from "../../assets/search.png";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const router = useRouter();
   const pathname = usePathname();
+  
+  const{data: session}:any = useSession();
 
   const getSearch = () => {
     if (!query.trim()) return;
@@ -42,22 +45,44 @@ export default function NavBar() {
           <Link  href="/movies" className={pathname === "/movies" ? "active" : ""} onClick={() => setMenuOpen(false)}>Movies</Link>
           <Link  href="/tv-shows" className={pathname === "/tv-shows" ? "active" : ""} onClick={() => setMenuOpen(false)}>TV Shows</Link>
           <Link  href="/people" className={pathname === "/people" ? "active" : ""} onClick={() => setMenuOpen(false)}>People</Link>
+          <Link  href="/favorites" className={pathname === "/favorites" ? "active" : ""} onClick={() => setMenuOpen(false)}>Favorites</Link>
         </div>
-
+        <div className="right-section">
+          {!session ? (
+            <>
         <div className="registration-links">
           <Link href="/login" className={pathname === "/login" ? "active" : ""} onClick={() => setMenuOpen(false)}>Login</Link>
           <Link href="/register" className={pathname === "/register" ? "active" : ""} onClick={() => setMenuOpen(false)}>Register</Link>
         </div>
-      
+            </>
+          ):(
+            <>
+            <li>
+              <button
+              onClick={() => {
+                signOut();
+                setMenuOpen(false);
+              }}
+              className="logout-btn"
+              >
+                Logout
+              </button> 
+            </li>
+            </>
+          )}
 
         <div className="greeting-content">
           <Image src={dicaprio} alt="Profile Picture" className="profile-pic" />
           <div className="greeting-text-group">
             <p className="greeting-text">Welcome Back</p>
-            <p className="greeting-text2">DiCaprio</p>
+            <p className="greeting-text2">
+              {session?.user?.email ?? "Dicaprio"}
+              </p>
           </div>
         </div>
       </div>
+      </div>
+
 
       <div className="search-bar">
         <input type="text"

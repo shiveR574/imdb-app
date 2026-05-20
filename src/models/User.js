@@ -1,9 +1,16 @@
-import moongose from "mongoose";
+import mongoose from "mongoose";
 
-const { Schema } = moongose;
+const { Schema } = mongoose;
 
 const userSchema = new Schema(
-  {
+  {firstName:{
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -17,4 +24,4 @@ const userSchema = new Schema(
 { timestamps: true }
 );
 
-export default moongose.models.User || moongose.model("User", userSchema);
+export default mongoose.models.User || mongoose.model("User", userSchema);

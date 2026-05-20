@@ -1,4 +1,5 @@
-"use client";
+'use client';
+import React from 'react';
 import "../app/home.scss";
 import {Movie} from "../types/movie";
 import { useEffect, useState, useRef } from 'react';
@@ -16,7 +17,7 @@ export default function HomePage() {
   const [trendingtvshows, setTrendingTvShows] = useState<TVShow[]>([]);
   const [trendingpeople, setTrendingPeople] = useState<People[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  
+
 
   useEffect (() => {
     getTrendingMovies();

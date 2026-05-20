@@ -9,7 +9,7 @@
 .login-container {
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 35%;
     height: 650px;
     margin-top: 90px;
     border-radius: 10px;
@@ -65,10 +65,10 @@
 
         .email-input, .password-input {
             display: flex;
-            font-size: 18px;
-            font-weight: normal;
+            font-size: 17px;
+            font-weight: light;
             flex-direction: column;
-            padding: 25px;
+            padding: 5px 15px;
             height: 45px;
             border-radius: 3px;
             border: none;
@@ -111,6 +111,18 @@
 
         .btn:hover {
             background-color: rgba(61, 61, 61, 0.908);
+        }
+
+        .error {
+            color: red;
+            font-family: 'Manrope', sans-serif;
+            font-size: 23px;
+            font-weight: bold;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: hue-rotate(-180deg);
         }
     }
 

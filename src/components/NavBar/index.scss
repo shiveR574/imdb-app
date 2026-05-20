@@ -2,7 +2,7 @@
 
 .navbar-container {
     width: 100%;
-    padding: 0.5rem 6rem;
+    padding: 0.5rem 4rem;
 }
 
 .navbar-content {
@@ -11,8 +11,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     padding: 0.2rem 0.5rem;
+
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 //.navbar-title {
@@ -89,17 +94,26 @@
 
 }
 
+.right-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    gap: 0.8rem;
+    flex-shrink: 0;
+}
+
 .registration-links {
     display: flex;
     gap: 0.3rem; /* spacing between links */
     white-space: nowrap; /* prevents from breaking into multiple lines */
     flex-shrink: 0; /* prevents from shrinking */
     margin-left: auto; /* pushes registration links to the right */
-    padding: 0rem 0.5rem; /* spacing around registration links */
+    padding: 0rem 0.3rem; /* spacing around registration links */
 
         a{
             text-decoration: none;
-            font-size: 1.9rem;
+            font-size: 1.3em;
             font-weight: bold;
             color: white;
             font-family: "Manrope", sans-serif;
@@ -122,6 +136,24 @@
         border-image: linear-gradient(to right, rgb(255, 0, 0), rgba(255, 255, 0, 0.901)) 1;
     }
 
+}
+
+.logout-btn{     
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    font-family: "Manrope", sans-serif;
+    border-radius: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 0.901)); 
+    padding: 0.2rem 0.4rem;
+
+    &:hover {
+        background: linear-gradient(to bottom, rgba(255, 0, 0, 0.7), rgba(255, 255, 0, 0.7)); 
+    }
 }
 
 
@@ -236,9 +268,11 @@
     // }
 
     .navbar-container {
-    width: 100%;
-    padding: 0.5rem 2rem;
-}
+        width: 100%;
+        padding: 0.5rem 0.8rem;
+        flex-shrink: 0; /* prevents from shrinking */
+        white-space: nowrap; /* prevents from breaking into multiple lines */
+    }
 
     .navbar-links {
         display: none;
@@ -246,7 +280,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0.3rem 0;
-        order: 2; /* moves links below greeting and above search bar */
+        order: 1; /* moves links below greeting and above search bar */
 
 
         a {
@@ -270,7 +304,7 @@
     }
 
     .search-bar {
-        order: 3;
+        order: 4;
     }
 
     .search-bar input {
@@ -297,13 +331,19 @@
         flex-wrap: wrap;
     }
 
+    .right-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+
     .greeting-content {
         justify-self: unset;
         display: flex;
         justify-content: center;
         margin-right: 0; /* reset margin for mobile */
         width: 100%; /* full width for mobile */
-        order: 1; /* move greeting to the top */
+        order: 3; /* move greeting to the top */
     }
 
     .greeting-text-group {
@@ -317,5 +357,6 @@
             font-size: 1.3rem;
         }
     }
+}
 }
 

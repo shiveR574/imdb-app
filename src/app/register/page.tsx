@@ -19,8 +19,15 @@ export default function Register () {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const email = e.target[0].value;
-        const password = e.target[1].value;
+        const firstName = e.target[0].value;        
+        const lastName = e.target[1].value;
+        const email = e.target[2].value;
+        const password = e.target[3].value;
+
+        if (!firstName || !lastName) {
+            setError("First name and last name are required");
+            return;
+        }
 
         if (!isValidEmail(email)) {
             setError("Email is invalid");
@@ -41,8 +48,11 @@ export default function Register () {
                 body: JSON.stringify({
                     email,
                     password,
+                    firstName,
+                    lastName
                 })
          })
+         
          if (res.status === 400) {
             setError("This email is already registered");
          } if (res.status === 200) {
@@ -54,12 +64,25 @@ export default function Register () {
             console.log(error);
          }
     }
+
     return (
         <div className="page-wrapper">
             <div className="register-container">
                 <div className="form-container">
                     <h1 className="form-title">Register</h1>
                     <form onSubmit={handleSubmit}>
+                        <div className="name-container">
+                            <input type="text" 
+                            className="first-name-input" 
+                            placeholder="First Name" 
+                            required
+                            />
+                            <input type="text" 
+                            className="last-name-input" 
+                            placeholder="Last Name" 
+                            required
+                            />
+                        </div>
                         <input type="text" 
                         className="email-input" 
                         placeholder="Email" 
