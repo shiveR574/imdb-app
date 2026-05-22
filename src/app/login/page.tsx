@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
+import github from "@/src/assets/github.png";
 
 
 export default function Login () {
@@ -81,7 +82,14 @@ export default function Login () {
                         <button type="submit" className="btn">Submit</button>
                         <p className="error">{error && error}</p>
                     </form>
-                    <button className="btn-github" onClick={() => {signIn("github")}}>Sign In with Github</button>
+                    <div className="oauth-container">
+                        <button className="btn-github" onClick={() => signIn("github")}>
+                            <span className="github-content">
+                                Sign In with Github
+                                <Image src={github} alt="Github" className="github-icon" />
+                            </span>
+                        </button>
+                    </div>
                     <div className="line-container">
                         <div className="line-left"></div>
                             <span>OR</span>

@@ -6,6 +6,8 @@ import preview from "@/src/assets/preview.png";
 import { useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
+import github from "@/src/assets/github.png";
 
 
 export default function Register () {
@@ -108,6 +110,14 @@ export default function Register () {
                         <button type="submit" className="btn">Submit</button>
                         <p className="error">{error && error}</p>
                     </form>
+                    <div className="oauth-container">
+                        <button className="btn-github" onClick={() => signIn("github")}>
+                            <span className="github-content">
+                                Sign In with Github
+                                <Image src={github} alt="Github" className="github-icon" />
+                            </span>
+                        </button>
+                    </div>
                     <div className="line-container">
                         <div className="line-left"></div>
                             <span>OR</span>

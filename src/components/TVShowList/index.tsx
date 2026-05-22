@@ -14,6 +14,8 @@ export default function TVShowList() {
     const [totalPages, setTotalPages] = useState<number>(0);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
+    const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+
     useEffect(() => {
         getTvShows(currentPage);
     }, [currentPage]);
@@ -25,7 +27,7 @@ export default function TVShowList() {
                 method: "get",
                 url: "https://api.themoviedb.org/3/discover/tv",
                 params: {
-                    api_key: "9ab0c1b5c24de8fee8cff270d3f18e70",
+                    api_key: TMDB_API_KEY,
                     language: "en-US",
                     page, //pass page number as a parameter
             }
