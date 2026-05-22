@@ -129,7 +129,7 @@
             width: 85%;
             height: 45px;
             border-radius: 3px;
-            background-color: rgb(34, 34, 34);
+            background-color: rgb(3, 63, 174);
             color: white;
             border: none;
             cursor: pointer;
@@ -142,10 +142,12 @@
             display: flex;
             padding: 25px;
             margin-top: 25px;
+            filter: hue-rotate(180deg);
         }
 
         .btn:hover {
-            background-color: rgba(61, 61, 61, 0.908);
+            background-color: rgb(5, 82, 224);
+            filter: hue-rotate(180deg);
         }
 
         .error {
