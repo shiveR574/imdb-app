@@ -24,6 +24,7 @@ export default function NavBar() {
   const getSearch = () => {
     if (!query.trim()) return;
     router.push(`/search?q=${encodeURIComponent(query)}`);
+    setQuery("");
   };
 
   return (
