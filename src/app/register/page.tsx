@@ -3,19 +3,26 @@ import "../register/page.scss";
 import Link from "next/link";
 import Image from "next/image";
 import preview from "@/src/assets/preview.png";
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 
 export default function Register () {
     const [error, setError] = useState("");
     const router = useRouter();
+    const {data: session, status: sessionStatus} = useSession();
+
+    useEffect(() => {
+        if(sessionStatus === "authenticated") {
+            router.replace("/");
+        }
+    }, [sessionStatus, router]);
     
     const isValidEmail = (email: string) => {
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     }
-
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -55,7 +62,7 @@ export default function Register () {
          
          if (res.status === 400) {
             setError("This email is already registered");
-         } if (res.status === 200) {
+         } else if (res.status === 200) {
             setError("");
             router.push("/login");
          }
@@ -65,7 +72,12 @@ export default function Register () {
          }
     }
 
+    if (sessionStatus === "loading") {
+        return <h1 style={{ color: "white", marginLeft: "20px" }}>Loading...</h1>
+    }
+
     return (
+        sessionStatus !== "authenticated" && (
         <div className="page-wrapper">
             <div className="register-container">
                 <div className="form-container">
@@ -114,4 +126,5 @@ export default function Register () {
             </div>
         </div>
     )
+)
 }

@@ -11,13 +11,14 @@ import { signIn, useSession } from "next-auth/react";
 export default function Login () {
     const [error, setError] = useState("");
     const router = useRouter();
-    const session = useSession();
+    //const session = useSession();
+    const {data: session, status: sessionStatus} = useSession();
 
     useEffect(() => {
-        if(session?.status === "authenticated") {
+        if(sessionStatus === "authenticated") {
             router.replace("/");
         }
-    }, [session, router]);
+    }, [sessionStatus, router]);
     
     
     const isValidEmail = (email: string) => {
@@ -56,8 +57,12 @@ export default function Login () {
         }
     };
 
+    if (sessionStatus === "loading") {
+        return <h1 style={{ color: "white", marginLeft: "20px" }}>Loading...</h1>
+    }
 
     return (
+        sessionStatus !== "authenticated" && (
         <div className="page-wrapper">
             <div className="login-container">
                 <div className="form-container">
@@ -94,5 +99,6 @@ export default function Login () {
                 </div>*/}
             </div>
         </div>
+    )
     )
 }
