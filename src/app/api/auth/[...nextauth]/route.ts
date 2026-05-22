@@ -45,7 +45,40 @@ export const authOptions:any = {
     }),
     // ...add more providers here
   ],
+    callbacks: {
+        async signIn({user, account}: {user: AuthUser, account: Account}) {
+            if(account?.provider == "credentials") {
+                return true;
+            }
+            if(account?.provider == "github") {
+                await connect();
+                try {
+                    if (!user.email) {
+                        console.log("GitHub user has no email");
+                        return false;
+                    }
+                    const existingUser = await User.findOne({email: user.email});
+                    if(!existingUser) {
+                        const nameParts = user.name?.split(" ") || [];
+                        const newUser = new User({
+                            email: user.email,
+                            firstName: nameParts[0] || "GitHub",
+                            lastName: nameParts[1] || "User",
+                        });
+
+                        await newUser.save();
+                        return true;
+                    }
+                    return true;
+                } catch(err) {
+                    console.log("Error saving user", err);
+                    return false;
+                }
+            }
+        }
+    }
 };
+
 
   export const handler = NextAuth(authOptions);
   export { handler as GET, handler as POST };

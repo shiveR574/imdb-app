@@ -35,7 +35,7 @@ export default function Register () {
         }
 
         if (!password || password.length < 8){
-            setError("Password is invalid");
+            setError("Password is invalid, must be at least 8 characters long");
             return;
         }
 

@@ -38,7 +38,7 @@ export default function Login () {
         }
 
         if (!password || password.length < 8){
-            setError("Password is invalid");
+            setError("Password is invalid, must be at least 8 characters long");
             return;
         }
 
@@ -76,6 +76,7 @@ export default function Login () {
                         <button type="submit" className="btn">Submit</button>
                         <p className="error">{error && error}</p>
                     </form>
+                    <button className="btn-github" onClick={() => {signIn("github")}}>Sign In with Github</button>
                     <div className="line-container">
                         <div className="line-left"></div>
                             <span>OR</span>
