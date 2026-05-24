@@ -1,5 +1,5 @@
 'use client';
-import "../[id]/page.scss";
+import "./page.scss";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {Movie} from "../../../types/movie";
