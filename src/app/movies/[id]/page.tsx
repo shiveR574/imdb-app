@@ -2,7 +2,6 @@
 import "./page.scss";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import {Movie} from "../../../types/movie";
 import { MovieDetails } from "../../../types/moviedetails";
 import { ClipLoader } from "react-spinners";
 import { use } from "react";
