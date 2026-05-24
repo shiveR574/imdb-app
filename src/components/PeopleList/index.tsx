@@ -5,13 +5,18 @@ import axios from "axios";
 import { People } from "@/src/types/people";
 import { ClipLoader } from "react-spinners";
 import PeopleDetails from "../PeopleDetails";
+import {useSearchParams, useRouter} from "next/navigation";
+
 
 export default function PeopleList() {
 
     const [people, setPeople] = useState<People[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(0);
+
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const currentPage = Number(searchParams.get("page")) || 1; // reading the page from URL
 
     const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
@@ -40,6 +45,10 @@ export default function PeopleList() {
         }
     }
 
+    const handlePageChange = (page: number) => {
+        router.push(`/people?page=${page}`); //saving page here in URL
+    }
+
     if (isLoading) {
         return (
             <div className="loading-container">
@@ -61,7 +70,7 @@ export default function PeopleList() {
 
             <div className="pagination">
                 <button
-                onClick={() => setCurrentPage((p) => p - 1)}
+                onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                 >
                     
@@ -71,7 +80,7 @@ export default function PeopleList() {
                 <span>{currentPage} out of {totalPages}</span>
 
                 <button
-                    onClick={() => setCurrentPage((p) => p + 1)}
+                    onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     >
 
