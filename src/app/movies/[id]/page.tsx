@@ -7,6 +7,7 @@ import { MovieDetails } from "../../../types/moviedetails";
 import { ClipLoader } from "react-spinners";
 import { use } from "react";
 import MovieCard from "@/src/components/MovieCard";
+import PeopleDetails from "@/src/components/PeopleDetails";
 
 export default function MovieDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = use(params);
@@ -92,6 +93,32 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                             })()}
                         </div>
                     </div>
+            </div>
+            <div className="movie-cast-container">
+                <div className="movie-cast-title-container">
+                    Cast of
+                <div className="movie-cast-title">
+                    "{movieDetails.title}"
+                </div>
+                </div>
+                <ul className="movie-cast-list">
+                    {movieDetails.credits.cast.slice(0, 10).map((person) => (
+                        <PeopleDetails key={person.id} people={person} />
+                    ))}
+                </ul>
+            </div>
+            <div className="movie-crew-container">
+                <div className="movie-crew-title-container">
+                    Crew of
+                <div className="movie-crew-title">
+                    "{movieDetails.title}"
+                </div>
+                </div>
+                <ul className="movie-crew-list">
+                    {movieDetails.credits.crew.slice(0, 10).map((person, index) => (
+                        <PeopleDetails key={`${person.id}-${index}`} people={person} />
+                    ))}
+                </ul>
             </div>
             <div className="similar-movies-container">
                 <div className="similar-movies-title-container">

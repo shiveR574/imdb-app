@@ -107,6 +107,70 @@
     }
 }
 
+.movie-cast-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .movie-cast-title-container {
+        text-align: flex-start;
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+        .movie-cast-title {
+            font-size: 1.5rem;
+            color: #bfbfbf;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 3px;
+        }
+    }
+    .movie-cast-list{
+        padding: 24px 3%;
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+.movie-crew-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .movie-crew-title-container {
+        text-align: flex-start;
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+        .movie-crew-title {
+            font-size: 1.5rem;
+            color: #bfbfbf;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 3px;
+        }
+    }
+    .movie-crew-list{
+        padding: 24px 3%;
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
 .similar-movies-container{
     width: 100%;
     display: flex;
@@ -137,6 +201,6 @@
             gap: 16px;
             list-style: none;
             width: 100%;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }

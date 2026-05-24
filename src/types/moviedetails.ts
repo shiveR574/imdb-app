@@ -18,12 +18,14 @@ export interface MovieDetails {
             name: string,
             character: string,
             profile_path: string,
+            known_for_department: string,
         }[],
         crew: {
             id: number,
             name: string,
             job: string,
             profile_path: string,
+            known_for_department: string,
         }[],
     };
     videos: {

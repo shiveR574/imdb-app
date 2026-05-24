@@ -1,6 +1,7 @@
 import "./index.scss";
 import { TVShow } from "../../types/tvshow";
 import StarRating from "../StarRating";
+import { useState } from "react";
 
 export interface Props {
     tvshow : TVShow
@@ -9,12 +10,14 @@ export interface Props {
 export default function TVShowCard(props: Props) {
 
     const tvshow = props.tvshow;
+    const [imgSrc, setImgSrc] = useState(`https://image.tmdb.org/t/p/original/${tvshow.poster_path}`);
 
     return (
         <li className="tv-show-card">
             <div className="tv-show-poster">
-                <img src={`https://image.tmdb.org/t/p/original/${tvshow.poster_path}`} 
+                <img src={imgSrc} 
                 alt={tvshow.name} 
+                onError = {() => setImgSrc("/fallback.svg")} //set fallback image if original image fails to load
                 />
             </div>
             <div className="tv-show-infos">

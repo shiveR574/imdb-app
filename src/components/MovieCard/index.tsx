@@ -2,6 +2,7 @@ import { Movie } from "../../types/movie";
 import "./index.scss";
 import StarRating from "../StarRating";
 import Link from "next/link";
+import { useState } from "react";
 
 export interface Props {
     movie: Movie
@@ -9,11 +10,13 @@ export interface Props {
 
 export default function MovieCard (props: Props){
     const movie = props.movie;
+    const [imgSrc, setImgSrc] = useState(`https://image.tmdb.org/t/p/original${movie.poster_path}`);
     return (
         <li className="movie-card">
             <div className="movie-poster">
-                <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                <img src={imgSrc}
                 alt={movie.title}
+                onError = {() => setImgSrc("/fallback.svg")} //set fallback image if original image fails to load
                 />
             </div>
             <div className="movie-infos">
