@@ -17,7 +17,7 @@
         position: absolute;
         bottom: 0; // para posicionar na parte inferior do card
         background: linear-gradient(#00000000, #000000 90%);
-        height: 100px;
+        height: 40%;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -25,14 +25,14 @@
         padding: 10px;
         .tv-show-name {
             color: #f1f5f9;
-            font-size: 12px;
+            font-size: clamp(0.6rem, 1.2vw, 0.85rem);
             font-weight: bold;
             margin-bottom: 6px;
         }
 
         .hidden-content{
             color: white;
-            font-size: 12px;
+            font-size: clamp(0.6rem, 1.2vw, 0.85rem);
             margin-top: 8px;
             height: 0; //para esconder o conteúdo
             opacity: 0; //para esconder o conteúdo
@@ -64,11 +64,11 @@
         }
 
         .tv-show-infos:has(.tv-show-overview) .hidden-content {
-            height: 100px; // para mostrar o conteúdo se tiver overview
+            height: 100%; // para mostrar o conteúdo se tiver overview
         }
 
         .tv-show-infos:not(:has(.tv-show-overview)) .hidden-content {
-            height: 50px; // para mostrar o conteúdo se não tiver overview
+            height: 35%; // para mostrar o conteúdo se não tiver overview
         }
     }
 }
