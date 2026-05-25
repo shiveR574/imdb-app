@@ -1,0 +1,208 @@
+.movie-backdrop{
+    width: 100%;
+    background-size: cover;
+
+    .movie-details-container {
+        display: flex;
+        gap: 40px;
+        padding: 40px 12%;
+        align-items: flex-start;
+        background: linear-gradient(to right, rgba(63, 63, 63, 0.95) 30%, rgba(0,0,0,0.65));
+    
+        .movie-poster-path {
+            width: 330px;
+            height: 100%;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+    }
+
+    .movie-details-info {
+        padding: 5px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    
+
+        .movie-title {
+            font-size: 2.5rem;
+            color: #fff;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .movie-overview {
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .movie-release-date{
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        .movie-runtime{
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        .movie-genres{
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        .movie-vote-average{
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        .movie-status{
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+        
+        .movie-tagline-container {
+            display: flex;
+            flex-direction: row;
+            font-size: 1.2rem;
+            color: #f6f4f4;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-style:normal;
+            gap: 3px;
+
+            .movie-tagline{ 
+                font-size: 1.2rem;
+                color: #f6f4f4;
+                font-family: 'Source Sans Pro', Arial, sans-serif;
+                font-style:italic;
+            }
+        }
+        .movie-trailer-link {
+            width: fit-content;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 10px 20px;
+            background-color: #6046ff;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Manrope', sans-serif;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: #4a34d4;
+            }
+        }
+    }
+}
+
+.movie-cast-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .movie-cast-title-container {
+        text-align: flex-start;
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+        .movie-cast-title {
+            font-size: 1.5rem;
+            color: #bfbfbf;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 3px;
+        }
+    }
+    .movie-cast-list{
+        padding: 24px 3%;
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+.movie-crew-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .movie-crew-title-container {
+        text-align: flex-start;
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+        .movie-crew-title {
+            font-size: 1.5rem;
+            color: #bfbfbf;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 3px;
+        }
+    }
+    .movie-crew-list{
+        padding: 24px 3%;
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+.similar-movies-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .similar-movies-title-container {
+        text-align: flex-start;
+        display: flex;
+        flex-direction: row;
+        margin-left: 20px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+
+        .similar-movies-title {
+            font-size: 1.5rem;
+            color: #bfbfbf;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 3px;
+        }
+    }
+    .similar-movies-list{
+            padding: 24px 3%;
+            display: grid;
+            gap: 16px;
+            list-style: none;
+            width: 100%;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
