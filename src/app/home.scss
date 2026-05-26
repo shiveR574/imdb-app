@@ -286,9 +286,8 @@
         }
     }
         .scroll-wrapper {
-            padding: 0;
+            padding: 0 5.3%;
         }
-        
         .scroll-button {
             width: 30px;
             height: 30px;
@@ -322,8 +321,10 @@
             width: 142px; /* fixed width for each item */
             height: 250px;
         }
+    }
+        .scroll-wrapper {
+            padding: 0 5.3%;
         }
-
         .scroll-button {
             width: 30px;
             height: 30px;
@@ -350,19 +351,20 @@
         
         .trendingpeople-list {
             gap: 12px;
-            margin-left: 2.5px;
+            margin-left: 7.5px;
 
             li {
                 width: 142px; /* fixed width for each item */
                 height: 250px; /* fixed height for each item */
             }
         }
-
+        .scroll-wrapper {
+            padding: 0 5.3%;
+        }
         .scroll-button {
             width: 30px;
             height: 30px;
             font-size: 18px;
         }
     }
-    
 }
