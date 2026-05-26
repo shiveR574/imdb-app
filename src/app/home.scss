@@ -89,6 +89,7 @@
         li {
             flex-shrink: 0; /* prevents from shrinking */
             width: 200px; /* fixed width for each item */
+            height: 320px;
             cursor: pointer;
             scroll-snap-align: start; /* ensures each card snaps to the start of the container */
         }
@@ -169,6 +170,7 @@
         li {
             flex-shrink: 0; /* prevents from shrinking */
             width: 200px; /* fixed width for each item */
+            height: 320px;
             cursor: pointer;
             scroll-snap-align: start; /* ensures each card snaps to the start of the container */
         }
@@ -273,11 +275,14 @@
         } */
 
         .trendingmovie-list {
-            gap: 12px;
+            gap: 10px;
             margin-left: 7.5px;
+
+
 
             li {
             width: 142px; /* fixed width for each item */
+            height: 250px;
         }
     }
 
@@ -312,6 +317,7 @@
 
             li {
             width: 142px; /* fixed width for each item */
+            height: 250px;
         }
         }
 
@@ -345,7 +351,7 @@
 
             li {
                 width: 142px; /* fixed width for each item */
-                height: 240px; /* fixed height for each item */
+                height: 250px; /* fixed height for each item */
             }
         }
 
