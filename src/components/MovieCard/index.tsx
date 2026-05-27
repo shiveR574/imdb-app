@@ -29,16 +29,18 @@ export default function MovieCard (props: Props){
                     />
                 )}
                 <div className="hidden-content">
-                    {movie.overview  &&
-                        <p className="movie-overview">
-                            {movie.overview.length > 100 
-                            ? `${movie.overview.substring(0, 100)}...`
-                            : movie.overview}
-                        </p>
-                    }
-                    <Link href={`/movies/${movie.id}`} className="btn-default">
-                        Ver Mais
-                    </Link>
+                    <div>
+                        {movie.overview  &&
+                            <p className="movie-overview">
+                                {movie.overview.length > 100 
+                                ? `${movie.overview.substring(0, 100)}...`
+                                : movie.overview}
+                            </p>
+                        }
+                        <Link href={`/movies/${movie.id}`} className="btn-default">
+                            Ver Mais
+                        </Link>
+                    </div>
                 </div>
             </div>
                     <p className="movie-vote-average">
