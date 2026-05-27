@@ -115,8 +115,6 @@
         border-bottom: 2px solid rgba(255, 255, 255, 0.088); /*adds a line below the title */
         padding-bottom: 3px;
         /*box-shadow: 0px 3px 4px rgba(255, 255, 255, 0.1); adds a subtle shadow for depth */
-
-
     }
 
     //wraps the list + the two arrow buttons
@@ -256,15 +254,16 @@
     }
 }
 
+
 @media (max-width: 768px) {
 
     .movies-container {
     
         .trendingmovies-title {
-            text-align: left;
+            text-align: center;
             flex-shrink: 0; /* prevents from shrinking */
             white-space: nowrap; /* prevents from breaking into multiple lines */
-            font-size: 2.3rem; /* slightly smaller font size for mobile */
+            font-size: 2.1rem; /* slightly smaller font size for mobile */
             margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
         }
 
@@ -276,17 +275,15 @@
 
         .trendingmovie-list {
             gap: 10px;
-            margin-left: 7.5px;
-
-
-
+            margin-left: 9px;
+            
             li {
             width: 142px; /* fixed width for each item */
             height: 250px;
         }
     }
         .scroll-wrapper {
-            padding: 0 5.3%;
+            padding: 0 1.8%;
         }
         .scroll-button {
             width: 30px;
@@ -301,10 +298,10 @@
     .tvshows-container { 
         
         .trendingtvshows-title {
-            text-align: left;
+            text-align: center;
             flex-shrink: 0; /*prevents from shrinking */
             white-space: nowrap; /* prevents from breaking into multiple lines*/
-            font-size: 2.3rem; /*slightly smaller font size for mobile*/
+            font-size: 2.1rem; /*slightly smaller font size for mobile*/
             margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
     }
 
@@ -313,8 +310,8 @@
         }*/
 
         .trendingtvshows-list {
-            gap: 12px;
-            margin-left: 7.5px;
+            gap: 10px;
+            margin-left: 9px;
             
 
             li {
@@ -323,7 +320,7 @@
         }
     }
         .scroll-wrapper {
-            padding: 0 5.3%;
+            padding: 0 1.8%;
         }
         .scroll-button {
             width: 30px;
@@ -338,10 +335,10 @@
     .people-container { 
         
         .trendingpeople-title {
-            text-align: left;
+            text-align: center;
             flex-shrink: 0; /* prevents from shrinking */
             white-space: nowrap; /* prevents from breaking into multiple lines */
-            font-size: 2.3rem; /* slightly smaller font size for mobile */
+            font-size: 2.1rem; /* slightly smaller font size for mobile */
             margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
         }
 
@@ -350,8 +347,8 @@
         }*/
         
         .trendingpeople-list {
-            gap: 12px;
-            margin-left: 7.5px;
+            gap: 10px;
+            margin-left: 9px;
 
             li {
                 width: 142px; /* fixed width for each item */
@@ -359,7 +356,7 @@
             }
         }
         .scroll-wrapper {
-            padding: 0 5.3%;
+            padding: 0 1.8%;
         }
         .scroll-button {
             width: 30px;

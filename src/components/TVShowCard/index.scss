@@ -36,14 +36,17 @@
             margin-top: 8px;
             height: 0; //para esconder o conteúdo
             opacity: 0; //para esconder o conteúdo
-            transition: all .6s;
+            transition: all .6s ease;
 
             .btn-default {
+                display: block;
+                text-align: center;
+                text-decoration: none;
                 background-color: #6046ff;
+                color: #fff;
                 padding: 6px 8px;
                 border-radius: 6px;
                 margin-top: 10px;
-                color: #fff;
                 border: none;
                 cursor: pointer;
                 width: 100%;
