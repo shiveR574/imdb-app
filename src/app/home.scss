@@ -255,10 +255,9 @@
 }
 
 
-@media (max-width: 768px), (max-width: 900px) and (orientation: landscape){
+@media (max-width: 768px) {
 
     .movies-container {
-    
         .trendingmovies-title {
             text-align: center;
             flex-shrink: 0; /* prevents from shrinking */
@@ -269,17 +268,16 @@
 
         /*.trendingmovie-list {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            
-
         } */
 
         .trendingmovie-list {
             gap: 10px;
             margin-left: 9px;
+
             
             li {
-            width: 142px; /* fixed width for each item */
-            height: 250px;
+            width: 128px; /* fixed width for each item */
+            height: 210px;
         }
     }
         .scroll-wrapper {
@@ -315,8 +313,8 @@
             
 
             li {
-            width: 142px; /* fixed width for each item */
-            height: 250px;
+            width: 128px; /* fixed width for each item */
+            height: 210px;
         }
     }
         .scroll-wrapper {
@@ -351,8 +349,116 @@
             margin-left: 9px;
 
             li {
-                width: 142px; /* fixed width for each item */
-                height: 250px; /* fixed height for each item */
+                width: 128px; /* fixed width for each item */
+                height: 210px; /* fixed height for each item */
+            }
+        }
+        .scroll-wrapper {
+            padding: 0 1.8%;
+        }
+        .scroll-button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .movies-container {
+        .trendingmovies-title {
+            text-align: center;
+            flex-shrink: 0; /* prevents from shrinking */
+            white-space: nowrap; /* prevents from breaking into multiple lines */
+            font-size: 2.1rem; /* slightly smaller font size for mobile */
+            margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
+        }
+
+        /*.trendingmovie-list {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        } */
+
+        .trendingmovie-list {
+            gap: 10px;
+            margin-left: 12px;
+
+            
+            li {
+            width: 128px; /* fixed width for each item */
+            height: 210px;
+        }
+    }
+        .scroll-wrapper {
+            padding: 0 1.8%;
+        }
+        .scroll-button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+        }
+  
+
+    }
+
+
+    .tvshows-container { 
+        
+        .trendingtvshows-title {
+            text-align: center;
+            flex-shrink: 0; /*prevents from shrinking */
+            white-space: nowrap; /* prevents from breaking into multiple lines*/
+            font-size: 2.1rem; /*slightly smaller font size for mobile*/
+            margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
+    }
+
+        /*.trendingtvshows-list {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }*/
+
+        .trendingtvshows-list {
+            gap: 10px;
+            margin-left: 12px;
+            
+
+            li {
+            width: 128px; /* fixed width for each item */
+            height: 210px;
+        }
+    }
+        .scroll-wrapper {
+            padding: 0 1.8%;
+        }
+        .scroll-button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+        }
+    }
+
+
+  
+        
+    .people-container { 
+        
+        .trendingpeople-title {
+            text-align: center;
+            flex-shrink: 0; /* prevents from shrinking */
+            white-space: nowrap; /* prevents from breaking into multiple lines */
+            font-size: 2.1rem; /* slightly smaller font size for mobile */
+            margin: 0.3rem 1.4rem; /* spacing between bottom/top and left/right */
+        }
+
+        /*.trendingpeople-list {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }*/
+        
+        .trendingpeople-list {
+            gap: 10px;
+            margin-left: 12px;
+
+            li {
+                width: 128px; /* fixed width for each item */
+                height: 210px; /* fixed height for each item */
             }
         }
         .scroll-wrapper {
