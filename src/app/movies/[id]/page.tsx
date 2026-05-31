@@ -7,6 +7,7 @@ import { ClipLoader } from "react-spinners";
 import { use } from "react";
 import MovieCard from "@/src/components/MovieCard";
 import PeopleDetails from "@/src/components/PeopleDetails";
+import AddToListButton from '@/src/components/AddToListButton';
 
 export default function MovieDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = use(params);
@@ -61,6 +62,7 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                             )}
                         <div className="movie-details-info">
                             <h2 className="movie-title">{movieDetails.title}</h2>
+                            <AddToListButton mediaId={id} mediaType="movie" />
                             <p className="movie-overview">{movieDetails.overview}</p>
                             <p className="movie-release-date">Release Date: {movieDetails.release_date}</p>
                             <p className="movie-runtime">Runtime: {movieDetails.runtime} minutes</p>

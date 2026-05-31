@@ -5,9 +5,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import User from "@/src/models/User";
 import connect from "@/src/utils/db";
+import type { NextAuthOptions } from "next-auth";
 
 
-export const authOptions: any = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
         id: "credentials",
@@ -44,7 +45,7 @@ export const authOptions: any = {
     }),
   ],
   callbacks: {
-      async signIn({user, account}: {user: AuthUser, account: Account}) {
+      async signIn({user, account}: {user: AuthUser, account: Account | null}) {
           if(account?.provider == "credentials") {
               return true;
           }
@@ -72,6 +73,7 @@ export const authOptions: any = {
                   return false;
               }
           }
+          return false;
       },
 
       // this puts the user id into the token when they log in
