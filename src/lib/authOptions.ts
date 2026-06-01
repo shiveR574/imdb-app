@@ -75,35 +75,6 @@ export const authOptions:any = {
                     return false;
                 }
             }
-        },
-        async jwt({ token, user, account }: { token: any, user: any, account: any }) {
-        // 'user' and 'account' are ONLY available the very first time the user signs in
-        if (account && user) {
-            if (account.provider === "credentials") {
-                // For credentials, 'user' is exactly what you returned from authorize()
-                token.id = user.id; 
-            } 
-            
-            if (account.provider === "github") {
-                // To avoid a second DB query here, look up the user once or pass it.
-                // If you stick to your current architecture, doing the DB lookup here is fine, 
-                // but use the provider check instead of length checking:
-                await connect();
-                const dbUser = await User.findOne({ email: token.email });
-                if (dbUser) {
-                    token.id = dbUser._id.toString();
-                }
-            }
-        }
-            return token;
-        },
-
-        // 2. Pass the token id to the client-side session
-        async session({ session, token }: { session: any, token: any }) {
-            if (token && session.user) {
-                session.user.id = token.id;
-            }
-            return session;
         }
     }
 };
