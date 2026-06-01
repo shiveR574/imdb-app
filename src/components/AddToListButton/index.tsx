@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from "react";
 import "./index.scss";
+import {WatchListButton} from "@/src/types/watchlistmovie";
 
-interface WatchlistButtonProps {
-  movieId: string;
-}
 
 type WatchStatus = "PLAN_TO_WATCH" | "WATCHING" | "COMPLETED" | "DROPPED";
 
-export default function WatchlistButton({ movieId }: WatchlistButtonProps) {
+export default function WatchlistButton({ movieId }: WatchListButton) {
   const [loading, setLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [currentStatus, setCurrentStatus] = useState<WatchStatus | "ADD">("ADD");
