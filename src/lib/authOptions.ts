@@ -1,14 +1,14 @@
-import NextAuth from "next-auth";
-import {Account, User as AuthUser} from "next-auth";
+import NextAuth, { AuthOptions, Session } from "next-auth";
+import { Account, User as AuthUser } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import User from "@/src/models/User";
 import connect from "@/src/utils/db";
+import { JWT } from "next-auth/jwt";
 
-
-export const authOptions:any = {
-  // Configure one or more authentication providers
+// 1. Switched from :any to :AuthOptions for full type protection
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
         id: "credentials",
@@ -34,6 +34,7 @@ export const authOptions:any = {
                         throw new Error("Wrong Credentials!");
                     }
                 }
+                return null; // Return null if user isn't found
             } catch (err: any) {
                 throw new Error(err);      
             }
@@ -43,10 +44,9 @@ export const authOptions:any = {
       clientId: process.env.GITHUB_ID ?? "",
       clientSecret: process.env.GITHUB_SECRET ?? "",
     }),
-    // ...add more providers here
   ],
-    callbacks: {
-        async signIn({user, account}: {user: AuthUser, account: Account}) {
+  callbacks: {
+        async signIn({user, account}: {user: AuthUser, account: Account | null}) {
             if(account?.provider == "credentials") {
                 return true;
             }
@@ -75,6 +75,30 @@ export const authOptions:any = {
                     return false;
                 }
             }
+            return false;
+        },
+        
+        async jwt({ token, user, account }: { token: JWT; user?: any; account?: Account | null }) {
+          if (user) {
+              if (account?.provider === "credentials") {
+                  token.id = user._id || user.id; 
+              } else if (account?.provider === "github") {
+                  await connect();
+                  const dbUser = await User.findOne({ email: user.email });
+                  if (dbUser) {
+                      token.id = dbUser._id.toString();
+                  }
+              }
+          }
+          return token;
+        },
+
+        // 2. Fixed: Changed session: any to session: Session
+        async session({ session, token }: { session: Session; token: JWT }) {
+          if (session.user && token.id) {
+              session.user.id = token.id; // TypeScript now knows exactly what token.id and session.user.id are!
+          }
+          return session;
         }
     }
 };

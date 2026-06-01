@@ -7,6 +7,7 @@ import { ClipLoader } from "react-spinners";
 import { use } from "react";
 import MovieCard from "@/src/components/MovieCard";
 import PeopleDetails from "@/src/components/PeopleDetails";
+import WatchlistButton from "@/src/components/AddToListButton";
 
 export default function MovieDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = use(params);
@@ -75,24 +76,26 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                                     </div>
                                 </div>
                             )}
-                            {(() => {
-                                const trailer = movieDetails.videos.results.find(
-                                    (v) => v.type === "Trailer" && v.site === "YouTube"
-                                );
-                                return trailer ? (
-                                    <a
-                                        href={`https://www.youtube.com/watch?v=${trailer.key}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="movie-trailer-link"
-                                    >
-                                        ▶ Watch Trailer
-                                    </a>
-                                ) : null;
-                            })()}
+                            <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}></div>
+                                {(() => {
+                                    const trailer = movieDetails.videos.results.find(
+                                        (v) => v.type === "Trailer" && v.site === "YouTube"
+                                    );
+                                    return trailer ? (
+                                        <a
+                                            href={`https://www.youtube.com/watch?v=${trailer.key}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="movie-trailer-link"
+                                        >
+                                            ▶ Watch Trailer
+                                        </a>
+                                    ) : null;
+                                })()}
+                            <WatchlistButton movieId={id} />
+                            </div>
                         </div>
-                    </div>
-            </div>
+                </div>
             <div className="movie-cast-container">
                 <div className="movie-cast-title-container">
                     Cast of
