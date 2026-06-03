@@ -55,6 +55,7 @@ export const authOptions: AuthOptions = {
             if(account?.provider == "credentials") {
                 return true;
             }
+
             if(account?.provider == "github" || account?.provider == "google") {
                 await connect();
                 try {
