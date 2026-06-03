@@ -7,6 +7,7 @@ import { useEffect, useState} from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import github from "@/src/assets/github.png";
+import google from "@/src/assets/google.png";
 
 
 export default function Login () {
@@ -87,6 +88,12 @@ export default function Login () {
                             <span className="github-content">
                                 Sign In with Github
                                 <Image src={github} alt="Github" className="github-icon" />
+                            </span>
+                        </button>
+                        <button className="btn-google" onClick={() => signIn("google")}>
+                            <span className="google-content">
+                                Sign In with Google
+                                <Image src={google} alt="Google" className="google-icon" />
                             </span>
                         </button>
                     </div>

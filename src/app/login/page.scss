@@ -129,6 +129,7 @@
     }
     .oauth-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         align-self: center;
@@ -147,6 +148,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 15px;
         }
 
         .btn-github:hover {
@@ -161,6 +163,38 @@
 
         .github-icon {
             width: 60px;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .btn-google {
+            height: 45px;
+            width: 100%;
+            border-radius: 3px;
+            background-color: rgb(34, 34, 34);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-size: 23px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-google:hover {
+            background-color: rgba(61, 61, 61, 0.908);
+        }
+
+        .google-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .google-icon {
+            width: 35px;
             height: 100%;
             object-fit: contain;
             filter: brightness(0) invert(1);

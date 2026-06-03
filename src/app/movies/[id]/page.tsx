@@ -62,6 +62,7 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                             )}
                         <div className="movie-details-info">
                             <h2 className="movie-title">{movieDetails.title}</h2>
+                            <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}></div>
                             <p className="movie-overview">{movieDetails.overview}</p>
                             <p className="movie-release-date">Release Date: {movieDetails.release_date}</p>
                             <p className="movie-runtime">Runtime: {movieDetails.runtime} minutes</p>
