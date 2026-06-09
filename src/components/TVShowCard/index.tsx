@@ -38,7 +38,7 @@ export default function TVShowCard(props: Props) {
                     </p>
                     }
                     <button className="btn-default">
-                        Ver Mais
+                        See More
                     </button>
                 </div>
             </div>

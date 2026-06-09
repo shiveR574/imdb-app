@@ -38,7 +38,7 @@ export default function MovieCard (props: Props){
                             </p>
                         }
                         <Link href={`/movies/${movie.id}`} className="btn-default">
-                            Ver Mais
+                            See More
                         </Link>
                     </div>
                 </div>

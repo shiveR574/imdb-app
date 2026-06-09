@@ -1,4 +1,4 @@
-import "@/src/app/tv-shows/[id]/page.scss";
+import "./page.scss";
 
 
 export default function TvShowsDetailsPage () {
