@@ -84,7 +84,7 @@ export default function WatchlistButton({ movieId }: WatchListButton) {
       </select>
 
       {/* 2. Tiny animated toast confirmation message */}
-      {isSaving && <span className="save-indicator">Saving...</span>}
+      {isSaving && <span className="save-indicator">WatchList Updated</span>}
     </div>
   );
 }
