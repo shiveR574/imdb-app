@@ -22,7 +22,8 @@ model Watchlist {
   id        Int         @id @default(autoincrement())
   userId    String
   email     String?     
-  movieId   String      
+  movieId   String   
+  movieName String?
   status    WatchStatus @default(PLAN_TO_WATCH)
   userRating Int?       
   progress   Int        @default(0) 

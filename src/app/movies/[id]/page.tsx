@@ -93,7 +93,7 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                                         </a>
                                     ) : null;
                                 })()}
-                            <WatchlistButton movieId={id} />
+                            <WatchlistButton movieId={id} movieName={movieDetails.title}/>
                             </div>
                         </div>
                 </div>

@@ -7,7 +7,7 @@ import {WatchListButton} from "@/src/types/watchlistmovie";
 
 type WatchStatus = "PLAN_TO_WATCH" | "WATCHING" | "COMPLETED" | "DROPPED";
 
-export default function WatchlistButton({ movieId }: WatchListButton) {
+export default function WatchlistButton({ movieId, movieName }: WatchListButton) {
   const [loading, setLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [currentStatus, setCurrentStatus] = useState<WatchStatus | "ADD">("ADD");
@@ -42,6 +42,7 @@ export default function WatchlistButton({ movieId }: WatchListButton) {
         },
         body: JSON.stringify({
           movieId: String(movieId),
+          movieName: movieName,
           status: newStatus,
         }),
       });

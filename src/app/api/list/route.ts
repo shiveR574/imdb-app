@@ -14,7 +14,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { movieId, status } = await request.json();
+    const { movieId, status, movieName } = await request.json();
+    console.log("Received:", { movieId, status, movieName }); // add this line
 
     const watchlistItem = await prisma.watchlist.upsert({
       where: {
@@ -23,11 +24,12 @@ export async function POST(request: Request) {
           movieId: String(movieId), // Cast to string just to be safe
         },
       },
-      update: { status },
+      update: { status, movieName: movieName || null }, // Update status and optionally movieName
       create: {
         userId: session.user.id,
         movieId: String(movieId),
         status: status,
+        movieName: movieName || null,
         email: session.user.email || "", // Store email if available
       },
     });
