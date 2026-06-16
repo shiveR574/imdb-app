@@ -16,9 +16,10 @@ enum WatchStatus {
   COMPLETED
   PLAN_TO_WATCH
   DROPPED
+  ON_HOLD
 }
 
-model Watchlist {
+model MovieWatchlist {
   id        Int         @id @default(autoincrement())
   userId    String
   email     String?     
@@ -31,5 +32,20 @@ model Watchlist {
   updatedAt DateTime    @updatedAt
 
   @@unique([userId, movieId])
+  @@index([userId])
+}
+model TvShowWatchlist {
+  id          Int   @id @default(autoincrement())
+  userId      String
+  tvshowId    String
+  tvshowName  String?
+  status      WatchStatus @default(PLAN_TO_WATCH)
+  email       String?
+  userRating  Int?
+  progress    Int        @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, tvshowId])
   @@index([userId])
 }
