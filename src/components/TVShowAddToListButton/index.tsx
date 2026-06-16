@@ -2,21 +2,18 @@
 
 import { useState, useEffect } from "react";
 import "./index.scss";
-import {WatchListButton} from "@/src/types/watchlistmovie";
+import { TVShowWatchListType } from "@/src/types/watchlisttvshow";
 
+type TVShowWatchStatus = "PLAN_TO_WATCH" | "WATCHING" | "COMPLETED" | "DROPPED" | "ON_HOLD";
 
-type WatchStatus = "PLAN_TO_WATCH" | "WATCHING" | "COMPLETED" | "DROPPED";
-
-export default function WatchlistButton({ movieId, movieName }: WatchListButton) {
-  const [loading, setLoading] = useState(false);
+export default function TVShowWatchListButton({ tvshowId, tvshowName }: TVShowWatchListType) {
   const [isSaving, setIsSaving] = useState(false);
-  const [currentStatus, setCurrentStatus] = useState<WatchStatus | "ADD">("ADD");
+  const [currentStatus, setCurrentStatus] = useState<TVShowWatchStatus | "ADD">("ADD");
 
-  // 1. Pre-load the movie's status from the database on page load
   useEffect(() => {
     const fetchCurrentStatus = async () => {
       try {
-        const response = await fetch(`/api/list?movieId=${movieId}`);
+        const response = await fetch(`/api/tvlist?tvshowId=${tvshowId}`);
         if (response.ok) {
           const data = await response.json();
           if (data.status) {
@@ -29,20 +26,18 @@ export default function WatchlistButton({ movieId, movieName }: WatchListButton)
     };
 
     fetchCurrentStatus();
-  }, [movieId]);
+  }, [tvshowId]);
 
-  const handleStatusChange = async (newStatus: WatchStatus) => {
+  const handleStatusChange = async (newStatus: TVShowWatchStatus) => {
     setIsSaving(true);
 
     try {
-      const response = await fetch("/api/list", {
+      const response = await fetch("/api/tvlist", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          movieId: String(movieId),
-          movieName: movieName,
+          tvshowId: String(tvshowId),
+          tvshowName,
           status: newStatus,
         }),
       });
@@ -55,14 +50,12 @@ export default function WatchlistButton({ movieId, movieName }: WatchListButton)
       const data = await response.json();
       if (data.success) {
         setCurrentStatus(newStatus);
-        
-        // Brief visual confirmation effect
-        setTimeout(() => {
-          setIsSaving(false);
-        }, 800);
+        const timer = setTimeout(() => setIsSaving(false), 800);
+        return () => clearTimeout(timer);
       }
-    } catch (error: any) {
-      alert(`Error: ${error.message}`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      alert(`Error: ${message}`);
       setIsSaving(false);
     }
   };
@@ -72,20 +65,18 @@ export default function WatchlistButton({ movieId, movieName }: WatchListButton)
       <select
         value={currentStatus}
         disabled={isSaving}
-        onChange={(e) => handleStatusChange(e.target.value as WatchStatus)}
+        onChange={(e) => handleStatusChange(e.target.value as TVShowWatchStatus)}
         className={`watchlist-select ${currentStatus.toLowerCase()}`}
       >
-        <option value="ADD" disabled hidden>
-          + Add to List
-        </option>
+        <option value="ADD" disabled hidden>+ Add to List</option>
         <option value="PLAN_TO_WATCH">📋 Plan to Watch</option>
         <option value="WATCHING">🍿 Watching</option>
         <option value="COMPLETED">✅ Completed</option>
         <option value="DROPPED">❌ Dropped</option>
+        <option value="ON_HOLD">⏸️ On Hold</option>
       </select>
 
-      {/* 2. Tiny animated toast confirmation message */}
-      {isSaving && <span className="save-indicator">WatchList Updated</span>}
+      {isSaving && <span className="save-indicator">Watchlist Updated</span>}
     </div>
   );
 }

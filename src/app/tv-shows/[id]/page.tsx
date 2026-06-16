@@ -5,6 +5,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import { TVShowDetails } from "../../../types/tvshowdetails";
 import { ClipLoader } from "react-spinners";
+import TVShowWatchListButton from "@/src/components/TVShowAddToListButton";
 
 
 export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: string }> }) {
@@ -71,6 +72,24 @@ export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: 
                                     </div>
                                 </div>
                         )}
+                        <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}>
+                            {(() => {
+                                const trailer = tvShowDetails.videos.results.find(
+                                    (v) => v.type === "Trailer" && v.site === "YouTube"
+                                );
+                                return trailer ? (
+                                    <a
+                                        href={`https://www.youtube.com/watch?v=${trailer.key}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="movie-trailer-link"
+                                    >
+                                        ▶ Watch Trailer
+                                    </a>
+                                ) : null;
+                            })()}
+                            <TVShowWatchListButton tvshowId={id} tvshowName={tvShowDetails.name}/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,5 +97,5 @@ export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: 
         ) : (
             <p>TV show details not found.</p>
         )
-    )
+    );
 }

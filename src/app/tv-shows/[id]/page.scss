@@ -1,0 +1,266 @@
+$font-main: 'Source Sans Pro', Arial, sans-serif;
+$font-accent: 'Manrope', sans-serif;
+$color-white: #fff;
+$color-light: #f6f4f4;
+$color-muted: #bfbfbf;
+$color-primary: #6046ff;
+$color-primary-hover: #4a34d4;
+
+.tvshow-backdrop {
+    width: 100%;
+    background-size: cover;
+    background-position: center top;
+
+    .tvshow-details-container {
+        display: flex;
+        gap: 40px;
+        padding: 40px 12%;
+        align-items: flex-start;
+        background: linear-gradient(to right, rgba(63, 63, 63, 0.95) 30%, rgba(0, 0, 0, 0.65));
+
+        @media (max-width: 1024px) {
+            padding: 40px 6%;
+        }
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 24px 5%;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 24px 5%;
+        }
+
+        @media (max-width: 480px) {
+            padding: 16px 4%;
+        }
+
+        .tvshow-poster-path {
+            width: 330px;
+            height: 100%;
+            margin-right: 20px;
+            border-radius: 8px;
+            flex-shrink: 0;
+
+            @media (max-width: 900px) {
+                width: 55%;
+                max-width: 260px;
+                margin-right: 0;
+            }
+
+            @media (max-width: 768px) {
+                width: 55%;
+                max-width: 260px;
+                margin-right: 0;
+            }
+
+            @media (max-width: 480px) {
+                width: 70%;
+                max-width: 200px;
+            }
+        }
+    }
+
+    .tvshow-details-info {
+        padding: 5px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .tvshow-title {
+            font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+            color: $color-white;
+            font-family: $font-main;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @media (max-width: 768px) {
+                white-space: normal;
+                text-align: center;
+            }
+        }
+
+        .tvshow-overview {
+            font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+            color: $color-light;
+            font-family: $font-main;
+            margin-bottom: 20px;
+
+            @media (max-width: 768px) {
+                text-align: center;
+                margin-bottom: 12px;
+            }
+        }
+
+        .tvshow-release-date,
+        .tvshow-runtime,
+        .tvshow-genres,
+        .tvshow-vote-average,
+        .tvshow-status {
+            font-size: clamp(0.85rem, 1.6vw, 1.2rem);
+            color: $color-light;
+            font-family: $font-main;
+        }
+
+        .tvshow-tagline-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            font-size: clamp(0.85rem, 1.6vw, 1.2rem);
+            color: $color-light;
+            font-family: $font-main;
+            font-style: normal;
+            gap: 3px;
+
+            .tvshow-tagline {
+                font-size: clamp(0.85rem, 1.6vw, 1.2rem);
+                color: $color-light;
+                font-family: $font-main;
+                font-style: italic;
+            }
+        }
+
+        .tvshow-trailer-link {
+            width: fit-content;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 10px 20px;
+            background-color: $color-primary;
+            color: $color-white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: $font-accent;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: $color-primary-hover;
+            }
+
+            @media (max-width: 768px) {
+                align-self: center;
+            }
+        }
+    }
+}
+
+// Shared title container styles
+%section-title-container {
+    text-align: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 20px;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    color: $color-white;
+    font-family: $font-main;
+    gap: 4px;
+    line-height: 1;
+
+    @media (max-width: 768px){
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 12px;
+    }
+}
+
+%section-title-italic {
+    white-space: nowrap;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    color: $color-muted;
+    font-family: $font-main;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 3px;
+}
+
+// Shared grid list styles
+%card-grid-list {
+    padding: 24px 3%;
+    display: grid;
+    gap: 16px;
+    list-style: none;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 16px 3%;
+        gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px 4%;
+        gap: 10px;
+    }
+}
+
+.tvshow-cast-container,
+.tvshow-crew-container,
+.similar-tvshows-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    @media (max-width: 480px) {
+        margin-top: 12px;
+    }
+}
+
+.tvshow-cast-container {
+    .tvshow-cast-title-container {
+        @extend %section-title-container;
+
+        .tvshow-cast-title {
+            @extend %section-title-italic;
+        }
+    }
+
+    .tvshow-cast-list {
+        @extend %card-grid-list;
+    }
+}
+
+.tvshow-crew-container {
+    .tvshow-crew-title-container {
+        @extend %section-title-container;
+
+        .tvshow-crew-title {
+            @extend %section-title-italic;
+        }
+    }
+
+    .tvshow-crew-list {
+        @extend %card-grid-list;
+    }
+}
+
+.similar-tvshows-container {
+    .similar-tvshows-title-container {
+        @extend %section-title-container;
+
+        .similar-tvshows-title {
+            @extend %section-title-italic;
+        }
+    }
+
+    .similar-tvshows-list {
+        @extend %card-grid-list;
+    }
+}

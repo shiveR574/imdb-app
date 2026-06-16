@@ -7,7 +7,7 @@ import { ClipLoader } from "react-spinners";
 import { use } from "react";
 import MovieCard from "@/src/components/MovieCard";
 import PeopleDetails from "@/src/components/PeopleDetails";
-import WatchlistButton from "@/src/components/AddToListButton";
+import MovieWatchListButton from "@/src/components/MovieAddToListButton";
 
 export default function MovieDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = use(params);
@@ -93,7 +93,7 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                                         </a>
                                     ) : null;
                                 })()}
-                            <WatchlistButton movieId={id} movieName={movieDetails.title}/>
+                            <MovieWatchListButton movieId={id} movieName={movieDetails.title}/>
                             </div>
                         </div>
                 </div>
