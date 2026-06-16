@@ -16,7 +16,7 @@ export default function MovieWatchListButton({ movieId, movieName }: MovieWatchL
   useEffect(() => {
     const fetchCurrentStatus = async () => {
       try {
-        const response = await fetch(`/api/list?movieId=${movieId}`);
+        const response = await fetch(`/api/movielist?movieId=${movieId}`);
         if (response.ok) {
           const data = await response.json();
           if (data.status) {
@@ -35,7 +35,7 @@ export default function MovieWatchListButton({ movieId, movieName }: MovieWatchL
     setIsSaving(true);
 
     try {
-      const response = await fetch("/api/list", {
+      const response = await fetch("/api/movielist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

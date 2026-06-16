@@ -62,7 +62,6 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                             )}
                         <div className="movie-details-info">
                             <h2 className="movie-title">{movieDetails.title}</h2>
-                            <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}></div>
                             <p className="movie-overview">{movieDetails.overview}</p>
                             <p className="movie-release-date">Release Date: {movieDetails.release_date}</p>
                             <p className="movie-runtime">Runtime: {movieDetails.runtime} minutes</p>
@@ -77,7 +76,7 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                                     </div>
                                 </div>
                             )}
-                            <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}></div>
+                            <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}>
                                 {(() => {
                                     const trailer = movieDetails.videos.results.find(
                                         (v) => v.type === "Trailer" && v.site === "YouTube"
@@ -96,7 +95,8 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                             <MovieWatchListButton movieId={id} movieName={movieDetails.title}/>
                             </div>
                         </div>
-                </div>
+                    </div>
+            </div>
             <div className="movie-cast-container">
                 <div className="movie-cast-title-container">
                     Cast of

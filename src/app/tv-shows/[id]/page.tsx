@@ -55,6 +55,7 @@ export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: 
                         <img 
                         src={`https://image.tmdb.org/t/p/original${tvShowDetails.poster_path}`} 
                         alt={tvShowDetails.name}
+                        className="tvshow-poster-path"
                         />
                     )}
                     <div className="tvshow-details-info">
@@ -82,7 +83,7 @@ export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: 
                                         href={`https://www.youtube.com/watch?v=${trailer.key}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="movie-trailer-link"
+                                        className="tvshow-trailer-link"
                                     >
                                         ▶ Watch Trailer
                                     </a>
