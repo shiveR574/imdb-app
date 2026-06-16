@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   try {
     const { tvshowId, status, tvshowName } = await request.json();
 
-    const watchlistItem = await prisma.TvShowWatchlist.upsert({
+    const watchlistItem = await prisma.tvShowWatchlist.upsert({
       where: {
         userId_tvshowId: {
           userId: session.user.id,
@@ -52,7 +52,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Missing tvshowId parameter" }, { status: 400 });
     }
 
-    const watchlistItem = await prisma.TvShowWatchlist.findUnique({
+    const watchlistItem = await prisma.tvShowWatchlist.findUnique({
       where: {
         userId_tvshowId: {
           userId: session.user.id,

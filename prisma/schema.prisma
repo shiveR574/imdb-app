@@ -5,6 +5,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -19,7 +20,7 @@ enum WatchStatus {
   ON_HOLD
 }
 
-model MovieWatchlist {
+model movieWatchlist {
   id        Int         @id @default(autoincrement())
   userId    String
   email     String?     
@@ -34,7 +35,7 @@ model MovieWatchlist {
   @@unique([userId, movieId])
   @@index([userId])
 }
-model TvShowWatchlist {
+model tvShowWatchlist {
   id          Int   @id @default(autoincrement())
   userId      String
   tvshowId    String

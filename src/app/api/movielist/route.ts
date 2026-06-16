@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const { movieId, status, movieName } = await request.json();
     console.log("Received:", { movieId, status, movieName }); // add this line
 
-    const watchlistItem = await prisma.watchlist.upsert({
+    const watchlistItem = await prisma.movieWatchlist.upsert({
       where: {
         userId_movieId: {
           userId: session.user.id,
@@ -61,7 +61,7 @@ export async function GET(request: Request) {
     }
 
     // Queries Supabase for an existing row matching this user + movie
-    const watchlistItem = await prisma.watchlist.findUnique({
+    const watchlistItem = await prisma.movieWatchlist.findUnique({
       where: {
         userId_movieId: {
           userId: session.user.id,

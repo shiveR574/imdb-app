@@ -2,6 +2,7 @@ import "./index.scss";
 import { TVShow } from "../../types/tvshow";
 import StarRating from "../StarRating";
 import { useState } from "react";
+import Link from "next/link";
 
 export interface Props {
     tvshow : TVShow
@@ -37,9 +38,9 @@ export default function TVShowCard(props: Props) {
                         : tvshow.overview}  
                     </p>
                     }
-                    <button className="btn-default">
-                        See More
-                    </button>
+                    <Link href={`/tv-shows/${tvshow.id}`} className="btn-default">
+                            See More
+                    </Link>
                 </div>
             </div>
                 <p className="tv-show-vote-average">
