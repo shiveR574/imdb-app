@@ -8,6 +8,7 @@ import { use } from "react";
 import MovieCard from "@/src/components/MovieCard";
 import PeopleDetails from "@/src/components/PeopleDetails";
 import MovieWatchListButton from "@/src/components/MovieAddToListButton";
+import FavoriteButton from "@/src/components/AddToFavoriteButton";
 
 export default function MovieDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const {id} = use(params);
@@ -93,6 +94,7 @@ export default function MovieDetailsPage({ params }: { params: Promise<{ id: str
                                     ) : null;
                                 })()}
                             <MovieWatchListButton movieId={id} movieName={movieDetails.title}/>
+                            <FavoriteButton type="MOVIE" entityId={movieDetails.id} entityName={movieDetails.title} />
                             </div>
                         </div>
                     </div>

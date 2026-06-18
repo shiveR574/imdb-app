@@ -50,3 +50,22 @@ model tvShowWatchlist {
   @@unique([userId, tvshowId])
   @@index([userId])
 }
+
+enum FavoriteType {
+  MOVIE
+  TVSHOW
+  PERSON
+}
+
+model favorite {
+  id         Int          @id @default(autoincrement())
+  userId     String
+  email      String?
+  type       FavoriteType
+  entityId   String
+  entityName String?
+  createdAt  DateTime     @default(now())
+
+  @@unique([userId, type, entityId])
+  @@index([userId])
+}

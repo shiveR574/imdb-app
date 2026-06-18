@@ -1,6 +1,7 @@
 import { People } from "@/src/types/people";
 import "../PeopleDetails/index.scss";
 import { useState } from "react";
+import Link from "next/link";
 
 export interface Props {
     people : People
@@ -24,9 +25,22 @@ export default function PeopleDetails(props: Props) {
                 <p className="people-name">
                     {people.name}
                 </p>
-                <p className="people-department">
-                    {people.known_for_department}
-                </p>
+                <div className="hidden-content">
+                    <p className="people-department">
+                        {people.known_for_department}
+                    </p>
+                    <p className="people-known-for">
+                        <span className="people-known-for">Known for </span>
+                        {/* {people.known_for
+                        ?.map((item) => item.title ?? item.name)
+                        .filter(Boolean)
+                        .join(", ")} */}
+                        {people.known_for?.[0]?.title ?? people.known_for?.[0]?.name ?? ""}
+                    </p>
+                    <Link href={`/people/${people.id}`} className="btn-default">
+                            See More
+                    </Link>
+                </div>
             </div>
         </li>
     )
