@@ -47,7 +47,7 @@ export default function TVShowList() {
     }
 
     const handlePageChange = (page: number) => {
-        router.push(`/movies?page=${page}`);
+        router.push(`/tv-shows?page=${page}`);
     }
 
       if (isLoading) {

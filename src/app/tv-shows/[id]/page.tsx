@@ -6,6 +6,9 @@ import axios from "axios";
 import { TVShowDetails } from "../../../types/tvshowdetails";
 import { ClipLoader } from "react-spinners";
 import TVShowWatchListButton from "@/src/components/TVShowAddToListButton";
+import FavoriteButton from "@/src/components/AddToFavoriteButton";
+import PeopleDetails from "@/src/components/PeopleDetails";
+import TVShowCard from "@/src/components/TVShowCard";
 
 
 export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: string }> }) {
@@ -73,7 +76,7 @@ export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: 
                                     </div>
                                 </div>
                         )}
-                        <div className="movie-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}>
+                        <div className="tvshow-actions-row" style={{ display: "flex", gap: "1rem", marginTop: "1.5rem", alignItems: "center" }}>
                             {(() => {
                                 const trailer = tvShowDetails.videos.results.find(
                                     (v) => v.type === "Trailer" && v.site === "YouTube"
@@ -90,9 +93,51 @@ export default function TvShowsDetailsPage ({ params }: { params: Promise<{ id: 
                                 ) : null;
                             })()}
                             <TVShowWatchListButton tvshowId={id} tvshowName={tvShowDetails.name}/>
+                            <FavoriteButton type="TVSHOW" entityId={tvShowDetails.id} entityName={tvShowDetails.name} />
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="tvshow-cast-container">
+                <div className="tvshow-cast-title-container">
+                    Cast of
+                <div className="tvshow-cast-title">
+                    "{tvShowDetails.name}"
+                </div>
+                </div>
+                <ul className="tvshow-cast-list">
+                    {tvShowDetails.credits.cast.slice(0, 10).map((person) => (
+                        <PeopleDetails key={person.id} people={person} />
+                    ))}
+                </ul>
+            </div>
+            <div className="tvshow-crew-container">
+                <div className="tvshow-crew-title-container">
+                    Crew of
+                <div className="tvshow-crew-title">
+                    "{tvShowDetails.name}"
+                </div>
+                </div>
+                <ul className="tvshow-crew-list">
+                    {tvShowDetails.credits.crew.slice(0, 10).map((person, index) => (
+                        <PeopleDetails key={`${person.id}-${index}`} people={person} />
+                    ))}
+                </ul>
+            </div>
+            <div className="similar-tvshows-container">
+                <div className="similar-tvshows-title-container">
+                    If you liked 
+                    <div className="similar-tvshows-title">
+                        "{tvShowDetails.name}"
+                    </div>
+                    , you might also like:
+                </div>
+                <ul className="similar-tvshows-list">
+                    {tvShowDetails.similar.results.slice(0,10).map((tvshow) => (
+                        <TVShowCard key={tvshow.id} tvshow={tvshow} />
+                    ))
+                    }
+                </ul>
             </div>
         </>
         ) : (

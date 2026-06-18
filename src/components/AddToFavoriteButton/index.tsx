@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import "./index.scss";
 import { FavoriteButtonType } from "@/src/types/favorite";
+import favorite from "../../assets/favorite.png";
+import nonfavorite from "../../assets/nonfavorite.png";
+import nonfavorite2 from "../../assets/nonfavorite2.png";
+import Image from "next/image";
 
 export default function FavoriteButton({ type, entityId, entityName }: FavoriteButtonType) {
   const [isFavorited, setIsFavorited] = useState(false);
@@ -68,7 +72,14 @@ export default function FavoriteButton({ type, entityId, entityName }: FavoriteB
       aria-label={isFavorited ? "Remove from favorites" : "Add to favorites"}
       title={isFavorited ? "Remove from favorites" : "Add to favorites"}
     >
-      {isFavorited ? "♥" : "♡"}
+    <Image
+      src={isFavorited ? favorite : nonfavorite2 }
+      alt={isFavorited ? "Favorited" : "Not favorited"}
+      width={38}
+      height={38}
+      style={isFavorited ? {filter: "none"} : { filter: "invert(1)"}}
+      // style={isFavorited ? { filter: "none" } : { filter: "invert(1) drop-shadow(0 0 1px white)" }}
+    />
     </button>
   );
 }
