@@ -18,6 +18,8 @@ export default function HomePage() {
   const [trendingpeople, setTrendingPeople] = useState<People[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+
 
   useEffect (() => {
     getTrendingMovies();
@@ -37,11 +39,8 @@ export default function HomePage() {
       const response = await axios ({
         method: "get",
         url: "https://api.themoviedb.org/3/trending/movie/day",
-        headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
-          accept: "application/json", 
-        },
         params: {
+          api_key: TMDB_API_KEY,
           language: "en-US",
         }
       });
@@ -60,11 +59,8 @@ export default function HomePage() {
       const response = await axios ({
         method: "get",
         url: "https://api.themoviedb.org/3/trending/tv/day",
-        headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
-          accept: "application/json", 
-        },
         params: {
+          api_key: TMDB_API_KEY,
           language: "en-US",
         }
       });
@@ -85,11 +81,8 @@ export default function HomePage() {
       const response = await axios ({
         method: "get",
         url: "https://api.themoviedb.org/3/person/popular",
-        headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YWIwYzFiNWMyNGRlOGZlZThjZmYyNzBkM2YxOGU3MCIsIm5iZiI6MTc2MjcwODE3Ny40MzIsInN1YiI6IjY5MTBjYWQxYTQ3M2NmYjY3ZDMxYjI1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.msaRTO0EphZ9heDLWI15S6RSImUUYHuVUP7L8donqxk",
-          accept: "application/json", 
-        },
         params: {
+          api_key: TMDB_API_KEY,
           language: "en-US",
         }
       });
