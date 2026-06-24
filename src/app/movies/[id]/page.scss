@@ -160,7 +160,7 @@ $color-primary-hover: #4a34d4;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 40px;
     font-size: clamp(0.9rem, 2.5vw, 1.5rem);
     color: $color-white;
     font-family: $font-main;
@@ -193,7 +193,7 @@ $color-primary-hover: #4a34d4;
 
 // Shared grid list styles
 %card-grid-list {
-    padding: 24px 3%;
+    padding: 24px 5%;
     display: grid;
     gap: 16px;
     list-style: none;

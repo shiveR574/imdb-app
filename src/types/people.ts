@@ -10,4 +10,6 @@ export interface People {
     known_for_department: string,
     profile_path: string,
     known_for?: KnownFor[],
+    character?: string,  // credits.cast
+    job?: string,         // credits.crew
 }
