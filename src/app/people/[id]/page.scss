@@ -83,8 +83,8 @@ $color-gradient: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 1)
     font-weight: bold;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 40px;
-    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    margin-left: 90px;
+    font-size: clamp(1.2rem, 2.8vw, 1.8rem);
     background: $color-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -117,8 +117,8 @@ $color-gradient: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 1)
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 40px;
-    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    margin-left: 90px;
+    font-size: clamp(1.2rem, 2.8vw, 1.8rem);
     background: $color-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
