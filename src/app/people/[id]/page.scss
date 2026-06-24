@@ -1,6 +1,139 @@
-.people-details-page {
-    color: white;
+$font-main: 'Source Sans Pro', Arial, sans-serif;
+$font-accent: 'Manrope', sans-serif;
+$color-white: #fff;
+$color-gradient: linear-gradient(to bottom, rgb(255, 0, 0), rgba(255, 255, 0, 1));
+
+.people-details-container {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    gap: 40px;
+    padding: 40px 5%;
+    align-items: flex-start;
+
+    .people-profile-path {
+        width: 330px;
+        height: 100%;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+}
+
+.people-details-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 10px;
+
+    .people-name {
+        color: $color-white;
+        font-family: $font-accent;
+        font-size: 30px;
+    }
+
+    .people-biography {
+        color: $color-white;
+        font-family: $font-accent;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    .birth-rows{
+        display: flex;
+        flex-direction: row;
+        color: $color-white;
+        font-family: $font-accent;
+        margin-top: 10px;
+        font-size: 20px;
+        gap: 5px;
+
+        .people-place-of-birth{
+            color: $color-white;
+            font-family: $font-accent;
+            font-weight: bold;
+            font-size: 20px;
+            
+        }
+
+        .people-birthday {
+            color: $color-white;
+            font-family: $font-accent;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .people-popularity {
+        color: $color-white;
+        font-family: $font-accent;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+}
+
+.people-movies-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .people-movies-title {
+    text-align: flex-start;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 40px;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: $font-main;
+    gap: 4px;
+    line-height: 1;
+    }
+
+    .people-movies-list {
+        padding: 24px 5%;
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+.people-tvshows-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .people-tvshows-title {
+    text-align: flex-start;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 40px;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: $font-main;
+    gap: 4px;
+    line-height: 1;
+    }
+
+    .people-tvshows-list {
+        padding: 24px 5%;
+        display: grid;
+        gap: 16px;
+        list-style: none;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }
